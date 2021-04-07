@@ -11,25 +11,52 @@ struct BoothView: View {
                 .offset(y: 370)
             
             HStack {
-                Image(uiImage: smallBoothImage)
-                    .resizable()
-                    .frame(width: 385, height: 115)
-                    .offset(x: 3.8)
+                ZStack {
+                    Image(uiImage: smallBoothCleanImage)
+                        .resizable()
+                        .frame(width: 385, height: 115)
+                        .offset(x: 3.8)
+                    
+                    HStack {
+                        Image(uiImage: avocadoImage)
+                            .resizable()
+                            .frame(width: 50, height: 40, alignment: .center)
+                            .scaledToFill()
+
+                        Image(uiImage: orangeImage)
+                            .resizable()
+                            .frame(width: 50, height: 40, alignment: .center)
+                            .scaledToFill()
+
+                        Image(uiImage: peachImage)
+                            .resizable()
+                            .frame(width: 50, height: 40, alignment: .center)
+                            .scaledToFill()
+
+                        Image(uiImage: strawberryImage)
+                            .resizable()
+                            .frame(width: 50, height: 40, alignment: .center)
+                            .scaledToFill()
+                    }
+                    .offset(y: 20)
+                    //.zIndex(1)
+
+                }
                 
-                Image(uiImage: smallBoothImage)
+                Image(uiImage: smallBoothCleanImage)
                     .resizable()
                     .frame(width: 385, height: 115)
                     .offset(x: -3.8)
             }
-            .offset(y: 115)
+            .offset(y: 285)
             
             HStack {
-                Image(uiImage: smallBoothImage)
+                Image(uiImage: smallBoothCleanImage)
                     .resizable()
                     .frame(width: 385, height: 115)
                     .offset(x: 3.8)
                 
-                Image(uiImage: smallBoothImage)
+                Image(uiImage: smallBoothCleanImage)
                     .resizable()
                     .frame(width: 385, height: 115)
                     .offset(x: -3.8)
@@ -37,17 +64,17 @@ struct BoothView: View {
             .offset(y: 200)
             
             HStack {
-                Image(uiImage: smallBoothImage)
+                Image(uiImage: smallBoothCleanImage)
                     .resizable()
                     .frame(width: 385, height: 115)
                     .offset(x: 3.8)
                 
-                Image(uiImage: smallBoothImage)
+                Image(uiImage: smallBoothCleanImage)
                     .resizable()
                     .frame(width: 385, height: 115)
                     .offset(x: -3.8)
             }
-            .offset(y: 285)
+            .offset(y: 115)
             
             Image(uiImage: bigBoothImage)
                 .resizable()
@@ -55,5 +82,12 @@ struct BoothView: View {
                 .offset(y: 5)
             
         }
+        .background(Color.black.frame(width: UIScreen.main.bounds.width, height: 700, alignment: .center).offset(y: 400))
+        
     }
 }
+
+// 115
+// 200
+// 285
+//

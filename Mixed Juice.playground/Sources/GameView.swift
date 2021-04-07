@@ -1,13 +1,22 @@
 import PlaygroundSupport
 import SwiftUI
 
-//var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
-//var bigShelfImage = UIImage(imageLiteralResourceName: "BigShelf")
-//var bigBoothImage = UIImage(imageLiteralResourceName: "BigBooth")
-//var smallBoothImage = UIImage(imageLiteralResourceName: "SmallBooth")
-//var baseBlenderImage = UIImage(imageLiteralResourceName: "BaseBlender")
-//var cupBlenderImage = UIImage(imageLiteralResourceName: "CupBlender")
-//var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
+var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
+var bigShelfImage = UIImage(imageLiteralResourceName: "BigShelf")
+var bigBoothImage = UIImage(imageLiteralResourceName: "BigBooth")
+var smallBoothImage = UIImage(imageLiteralResourceName: "SmallBooth")
+var smallBoothCleanImage = UIImage(imageLiteralResourceName: "SmallBoothClean")
+var baseBlenderImage = UIImage(imageLiteralResourceName: "BaseBlender")
+var cupBlenderImage = UIImage(imageLiteralResourceName: "CupBlender")
+var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
+var avocadoImage = UIImage(imageLiteralResourceName: "Avocado")
+var kiwiImage = UIImage(imageLiteralResourceName: "Kiwi")
+var orangeImage = UIImage(imageLiteralResourceName: "Orange")
+var peachImage = UIImage(imageLiteralResourceName: "Peach")
+var pearImage = UIImage(imageLiteralResourceName: "Pear")
+var strawberryImage = UIImage(imageLiteralResourceName: "Strawberry")
+
+
 
 public struct GameView: View {
     
