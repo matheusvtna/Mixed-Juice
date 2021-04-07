@@ -18,8 +18,8 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(currentRound: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                 }
                 
                 //// Sixth Sequence Tried
@@ -29,8 +29,8 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(currentRound: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                     
                 }
             }
@@ -44,8 +44,8 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(currentRound: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                 }
                 
                 //// Fourth Sequence Tried
@@ -55,8 +55,8 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(currentRound: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                     
                 }
             }
@@ -70,8 +70,8 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(currentRound: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                 }
                 
                 //// Second Sequence Tried
@@ -81,55 +81,94 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(currentRound: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 20)
+                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                        .offset(y: 15)
                     
                 }
             }
             .offset(y: 115)
             
             //// Current Sequence Booth
-            Image(uiImage: bigBoothImage)
-                .resizable()
-                .frame(width: 770, height: 160)
-                .offset(y: 5)
-            
+            ZStack {
+                Image(uiImage: bigBoothImage)
+                    .resizable()
+                    .frame(width: 770, height: 160)
+                    .offset(y: 5)
+                
+                HStack {
+                    Image(uiImage: strawberryImage)
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                        .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding([.trailing, .leading])
+
+                    Image(uiImage: strawberryImage)
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                        .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding([.trailing, .leading])
+                    
+                    Image(uiImage: peachImage)
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                        .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding([.trailing, .leading])
+                    
+                    Image(uiImage: orangeImage)
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                        .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding([.trailing, .leading])
+                }
+                .offset(y: 20)
+            }
         }
-        .background(Color.black.frame(width: UIScreen.main.bounds.width, height: 700, alignment: .center).offset(y: 400))
         
     }
 }
 
 struct RoundHistory: View {
     
-    var currentRound: Round
+    var attempt: Round
     
     var body: some View {
         HStack {
-            Image(uiImage: currentRound.fruits[0])
+            Image(uiImage: attempt.fruits[0])
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
 
-            Image(uiImage: currentRound.fruits[1])
+            Image(uiImage: attempt.fruits[1])
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
+                .offset(x: -10)
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
 
-            Image(uiImage: currentRound.fruits[2])
+            Image(uiImage: attempt.fruits[2])
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                .offset(x: -20)
 
-            Image(uiImage: currentRound.fruits[3])
+            Image(uiImage: attempt.fruits[3])
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                .offset(x: -30)
             
             Image(uiImage: baseBlenderImage)
                 .resizable()
                 .frame(width: 60, height: 60, alignment: .center)
                 .scaledToFill()
+                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                 .offset(y: -10)
         }
     }

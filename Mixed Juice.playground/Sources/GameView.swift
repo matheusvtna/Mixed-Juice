@@ -36,22 +36,33 @@ public struct GameView: View {
                 HStack {
                     Image(uiImage: strawberryImage)
                         .resizable()
-                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding()
+
                     Image(uiImage: orangeImage)
                         .resizable()
-                        .frame(width: 80, height: 70, alignment: .center)
+                        .frame(width: 80, height: 80, alignment: .center)
                         .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding()
+
                     Image(uiImage: avocadoImage)
                         .resizable()
-                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding()
+                    
                     Image(uiImage: peachImage)
                         .resizable()
-                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .scaledToFill()
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
+                        .padding()
                 }
-                .offset(y: -50)
+                .offset(y: -47)
             }
             .padding(-100)
             
