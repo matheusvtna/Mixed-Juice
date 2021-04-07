@@ -54,9 +54,11 @@ public struct BlenderView: View {
             
         }
         .onChange(of: fruitsCount) { _ in
-            withAnimation(Animation.linear(duration: 1.0)){
-                self.offsetY -= 20
-                self.offsetY = self.offsetY.clamped(to: -10...50)
+            if fruitsCount > 0 {
+                withAnimation(Animation.linear(duration: 1.0)){
+                    self.offsetY -= 20
+                    self.offsetY = self.offsetY.clamped(to: -10...50)
+                }
             }
         }
         .onChange(of: mix) { _ in
@@ -106,4 +108,14 @@ struct Trapezoid: Shape {
     }
 }
 
-
+struct BaseBlenderView: View {
+    var body: some View {
+        
+        GeometryReader { geometry in
+            Image(uiImage: baseBlenderImage)
+                .resizable()
+                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+        }
+        
+    }
+}

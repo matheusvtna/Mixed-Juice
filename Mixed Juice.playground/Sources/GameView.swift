@@ -16,8 +16,6 @@ var peachImage = UIImage(imageLiteralResourceName: "Peach")
 var pearImage = UIImage(imageLiteralResourceName: "Pear")
 var strawberryImage = UIImage(imageLiteralResourceName: "Strawberry")
 
-
-
 public struct GameView: View {
     
     @State var mix: Bool = false
@@ -29,47 +27,56 @@ public struct GameView: View {
     public var body: some View {
         VStack(alignment: .center) {
             
-            Image(uiImage: bigShelfImage)
-                .resizable()
-                .frame(width: 525, height: 55, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)            
-                .padding(-100)
-            
-            
-            //            ZStack {
-            
-            //                HStack {
-            //                    Button(action: {
-            //                        self.mix.toggle()
-            //                        print("misturou 1")
-            //                    }, label: {
-            //                        Text("Mix Juice")
-            //                            .background(Color.black)
-            //                    })
-            //
-            //                    Spacer()
-            //
-            //                    Button(action: {
-            //                        self.fruitsCount += 1
-            //                        self.fruitsCount = self.fruitsCount.clamped(to: 0...4)
-            //                    }, label: {
-            //                        Text("Add Fruit")
-            //                            .background(Color.black)
-            //                    })
-            //
-            //                }
-            //                .padding([.trailing, .leading])
-            
+            //// Ingredients
+            ZStack {
+                Image(uiImage: bigShelfImage)
+                    .resizable()
+                    .frame(width: 525, height: 55, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                HStack {
+                    Image(uiImage: strawberryImage)
+                        .resizable()
+                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaledToFill()
+                    Image(uiImage: orangeImage)
+                        .resizable()
+                        .frame(width: 80, height: 70, alignment: .center)
+                        .scaledToFill()
+                    Image(uiImage: avocadoImage)
+                        .resizable()
+                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaledToFill()
+                    Image(uiImage: peachImage)
+                        .resizable()
+                        .frame(width: 80, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaledToFill()
+                }
+                .offset(y: -50)
+            }
+            .padding(-100)
             
             ZStack {
                 
-                
+                //// Blender Buttons
                 HStack {
                     Button(action: {
                         self.mix.toggle()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            self.mix.toggle()
+                            
+                            withAnimation(Animation.linear(duration: Double(self.fruitsCount/2))){
+                                self.fluidLevel = 90
+                                self.fruitsCount = 0
+                            }
+                        }
+                        
                     }, label: {
                         Text("Mix Juice")
                             .background(Color.black)
-                    }).padding()
+                    })
+                    .padding()
+                    .padding([.trailing, .leading], 100)
                     
                     Spacer()
                     Button(action: {
@@ -78,11 +85,13 @@ public struct GameView: View {
                     }, label: {
                         Text("Add Fruit")
                             .background(Color.black)
-                    }).padding()
+                    })
+                    .padding()
+                    .padding([.trailing, .leading], 100)
                     
                 }.padding()
-                
-                
+
+                //// Blender and Booth
                 VStack(alignment: .center){
                     
                     BoothView()
@@ -92,8 +101,7 @@ public struct GameView: View {
                     VStack {
                         BlenderView(offsetY: self.$fluidLevel, mix: self.$mix, fruitsCount: self.$fruitsCount)
                         
-                        Image(uiImage: baseBlenderImage)
-                            .resizable()
+                        BaseBlenderView()
                             .frame(width: 162, height: 162, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .offset(y: -25)
                     }
@@ -107,7 +115,5 @@ public struct GameView: View {
                 .resizable()
                 .frame(width: 770, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         )
-        
-        //}
     }
 }
