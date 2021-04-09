@@ -6,15 +6,7 @@ public struct BlenderView: View {
     @State private var time: Double = 0.0
     @State private var animate: Bool = false
     @State private var timeInterval = 0.03
-    @Binding var offsetY: CGFloat
-    @Binding var mix: Bool
-    @Binding var fruitsCount: Int
-    
-    public init(offsetY: Binding<CGFloat>, mix: Binding<Bool>, fruitsCount: Binding<Int>) {
-        self._offsetY = offsetY
-        self._mix = mix
-        self._fruitsCount = fruitsCount
-    }
+    @ObservedObject var game: GameEnvironment
     
     public var body: some View {
         ZStack(alignment: .center) {
@@ -33,8 +25,8 @@ public struct BlenderView: View {
                     .frame(width: 135, height: 180)
                 
             }
-            .offset(x: 0, y: self.offsetY)
-            .mask(Trapezoid(percent: 13).frame(width: 90, height: 110, alignment: .center).offset(y: 32))
+            .offset(x: 0, y: self.game.fluidLevel)
+            .mask(Trapezoid(percent: 13).frame(width: 90, height: 130, alignment: .center).offset(y: 32))
             
             Image(uiImage: cupBlenderCleanImage)
                 .resizable()
@@ -45,7 +37,7 @@ public struct BlenderView: View {
             self.animate.toggle()
             
             Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true) { _ in
-                if self.mix {
+                if self.game.mix {
                     self.time += 0.2
                 } else {
                     self.time += 0.005
@@ -53,16 +45,16 @@ public struct BlenderView: View {
             }
             
         }
-        .onChange(of: fruitsCount) { _ in
-            if fruitsCount > 0 {
+        .onChange(of: self.game.fruitsCount) { _ in
+            if self.game.fruitsCount > 0 {
                 withAnimation(Animation.linear(duration: 1.0)){
-                    self.offsetY -= 20
-                    self.offsetY = self.offsetY.clamped(to: -10...50)
+                    self.game.fluidLevel -= 25
+                    self.game.fluidLevel = self.game.fluidLevel.clamped(to: -30...self.game.initialFluidLevel)
                 }
             }
         }
-        .onChange(of: mix) { _ in
-            if mix {
+        .onChange(of: self.game.mix) { _ in
+            if self.game.mix {
                 self.timeInterval = 1.0
             } else {
                 self.timeInterval = 0.03

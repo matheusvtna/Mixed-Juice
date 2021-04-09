@@ -1,6 +1,6 @@
 import SwiftUI
 
-public class Sequence {
+public class RoundSequence {
     var fruits: [UIImage] = []
     var hits: [Feedback] = []
     

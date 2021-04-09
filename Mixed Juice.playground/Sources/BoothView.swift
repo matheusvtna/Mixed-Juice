@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct BoothView: View {
+    @ObservedObject var game: GameEnvironment
+    
     var body: some View {
         ZStack{
             //// Last Cabinet Booth
@@ -18,8 +20,11 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 15)
+                    if self.game.currentRound >= 5 {
+                        RoundHistoryView(attempt: self.game.attempts[4])
+                            .offset(y: 15)
+                    }
+                    
                 }
                 
                 //// Sixth Sequence Tried
@@ -29,8 +34,10 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
-                        .offset(y: 15)
+                    if self.game.currentRound >= 6 {
+                        RoundHistoryView(attempt: self.game.attempts[5])
+                            .offset(y: 15)
+                    }
                     
                 }
             }
@@ -44,8 +51,10 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                    if self.game.currentRound >= 3 {
+                        RoundHistoryView(attempt: self.game.attempts[2])
                         .offset(y: 15)
+                    }
                 }
                 
                 //// Fourth Sequence Tried
@@ -55,9 +64,10 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                    if self.game.currentRound >= 4 {
+                        RoundHistoryView(attempt: self.game.attempts[3])
                         .offset(y: 15)
-                    
+                    }
                 }
             }
             .offset(y: 200)
@@ -70,9 +80,10 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    RoundHistory(attempt: Round(fruits: [strawberryImage, strawberryImage,strawberryImage,strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                    if self.game.currentRound >= 1 {
+                        RoundHistoryView(attempt: self.game.attempts[0])
                         .offset(y: 15)
-                }
+                    }                }
                 
                 //// Second Sequence Tried
                 ZStack{
@@ -81,9 +92,10 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    RoundHistory(attempt: Round(fruits: [orangeImage, avocadoImage, peachImage, strawberryImage], hits: [.correct, .correct, .almost, .incorrect]))
+                    if self.game.currentRound >= 2 {
+                        RoundHistoryView(attempt: self.game.attempts[1])
                         .offset(y: 15)
-                    
+                    }
                 }
             }
             .offset(y: 115)
@@ -96,33 +108,33 @@ struct BoothView: View {
                     .offset(y: 5)
                 
                 HStack {
-                    Image(uiImage: strawberryImage)
+                    Image(uiImage: self.game.getImage(0))
                         .resizable()
                         .frame(width: 75, height: 75, alignment: .center)
                         .scaledToFill()
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                         .padding([.trailing, .leading])
-
-                    Image(uiImage: strawberryImage)
-                        .resizable()
-                        .frame(width: 75, height: 75, alignment: .center)
-                        .scaledToFill()
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
-                        .padding([.trailing, .leading])
+                        .offset(y: 5)
                     
-                    Image(uiImage: peachImage)
+                    Image(uiImage: self.game.getImage(1))
                         .resizable()
                         .frame(width: 75, height: 75, alignment: .center)
                         .scaledToFill()
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                         .padding([.trailing, .leading])
+                        .offset(y: 5)
                     
-                    Image(uiImage: orangeImage)
+                    Image(uiImage: self.game.getImage(2))
                         .resizable()
                         .frame(width: 75, height: 75, alignment: .center)
                         .scaledToFill()
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                         .padding([.trailing, .leading])
+                        .offset(y: 5)
+                    
+                    Image(uiImage: self.game.getImage(3))
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                        .scaledToFill()
+                        .padding([.trailing, .leading])
+                        .offset(y: 5)
                 }
                 .offset(y: 20)
             }
@@ -131,45 +143,68 @@ struct BoothView: View {
     }
 }
 
-struct RoundHistory: View {
+struct RoundHistoryView: View {
     
-    var attempt: Round
+    var attempt: RoundSequence
     
     var body: some View {
         HStack {
             Image(uiImage: attempt.fruits[0])
                 .resizable()
-                .frame(width: 50, height: 40, alignment: .center)
+                .frame(width: 60, height: 50, alignment: .center)
                 .scaledToFill()
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
-
+            
             Image(uiImage: attempt.fruits[1])
                 .resizable()
-                .frame(width: 50, height: 40, alignment: .center)
+                .frame(width: 60, height: 50, alignment: .center)
                 .scaledToFill()
                 .offset(x: -10)
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
-
+            
             Image(uiImage: attempt.fruits[2])
                 .resizable()
-                .frame(width: 50, height: 40, alignment: .center)
+                .frame(width: 60, height: 50, alignment: .center)
                 .scaledToFill()
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                 .offset(x: -20)
-
+            
             Image(uiImage: attempt.fruits[3])
                 .resizable()
-                .frame(width: 50, height: 40, alignment: .center)
+                .frame(width: 60, height: 50, alignment: .center)
                 .scaledToFill()
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                 .offset(x: -30)
             
             Image(uiImage: baseBlenderImage)
                 .resizable()
                 .frame(width: 60, height: 60, alignment: .center)
                 .scaledToFill()
-                .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0.0, y: 5)
                 .offset(y: -10)
         }
     }
 }
+
+//struct DragInsertDelegate: DropDelegate {
+//    @ObservedObject var environment: GameEnvironment?
+//
+//    func dropEntered(info: DropInfo) {
+//
+//        environment.currentRound.append
+//
+//
+//        if item != current {
+//            let from = listData.firstIndex(of: current!)!
+//            let to = listData.firstIndex(of: item)!
+//            if listData[to].id != current!.id {
+//                listData.move(fromOffsets: IndexSet(integer: from),
+//                    toOffset: to > from ? to + 1 : to)
+//            }
+//        }
+//    }
+//
+//    func dropUpdated(info: DropInfo) -> DropProposal? {
+//        return DropProposal(operation: .move)
+//    }
+//
+//    func performDrop(info: DropInfo) -> Bool {
+//        self.current = nil
+//        return true
+//    }
+//}
