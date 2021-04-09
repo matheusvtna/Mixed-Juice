@@ -1,6 +1,6 @@
 import SwiftUI
 
-public class Round {
+public class Sequence {
     var fruits: [UIImage] = []
     var hits: [Feedback] = []
     
@@ -11,5 +11,10 @@ public class Round {
     public init(fruits: [UIImage], hits: [Feedback]) {
         self.fruits = fruits
         self.hits = hits
+    }
+    
+    public init(){
+        self.fruits = []
+        self.hits = []
     }
 }
