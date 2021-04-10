@@ -2,7 +2,7 @@ import SwiftUI
 
 let gradient = LinearGradient(gradient: Gradient(colors: [Color.blue, Color.lightBlue]), startPoint: .top, endPoint: .bottom)
 
-public struct BlenderView: View {
+public struct CupBlenderView: View {
     @State private var time: Double = 0.0
     @State private var animate: Bool = false
     @State private var timeInterval = 0.03
@@ -101,12 +101,47 @@ struct Trapezoid: Shape {
 }
 
 struct BaseBlenderView: View {
+    @ObservedObject var game: GameEnvironment
+    
     var body: some View {
         
         GeometryReader { geometry in
-            Image(uiImage: baseBlenderImage)
-                .resizable()
-                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+            ZStack{
+                Image(uiImage: baseBlenderCleanImage)
+                    .resizable()
+                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                
+                Button(action: {
+                    self.game.mix.toggle()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self.game.mix.toggle()
+                        
+                        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
+                            self.game.fluidLevel = self.game.initialFluidLevel
+                            self.game.fruitsCount = 0
+                            self.game.attempts.append(self.game.currentSequence)
+                            self.game.currentRound += 1
+                            self.game.currentSequence = RoundSequence()
+                            self.game.objectWillChange.send()
+                        }
+                    }
+                }, label: {
+                    ZStack{
+                        Circle()
+                            .fill(Color.lightPurple)
+                            .frame(width: geometry.size.width/2, height: geometry.size.width/2)
+                            .shadow(radius: 5.0)
+                        
+                        Circle()
+                            .fill(Color.lightGrey)
+                            .frame(width: geometry.size.width/3.5, height: geometry.size.width/3.5)
+                            .shadow(radius: 2.0)
+
+                    }
+                })
+
+            }
         }
         
     }

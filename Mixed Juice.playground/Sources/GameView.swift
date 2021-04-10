@@ -2,11 +2,14 @@ import PlaygroundSupport
 import SwiftUI
 
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
+var receipeCardImage = UIImage(imageLiteralResourceName: "ReceipeCard")
 var bigShelfImage = UIImage(imageLiteralResourceName: "BigShelf")
+var bigShelfCleanImage = UIImage(imageLiteralResourceName: "BigShelfClean")
 var bigBoothImage = UIImage(imageLiteralResourceName: "BigBooth")
 var smallBoothImage = UIImage(imageLiteralResourceName: "SmallBooth")
 var smallBoothCleanImage = UIImage(imageLiteralResourceName: "SmallBoothClean")
 var baseBlenderImage = UIImage(imageLiteralResourceName: "BaseBlender")
+var baseBlenderCleanImage = UIImage(imageLiteralResourceName: "BaseBlenderClean")
 var cupBlenderImage = UIImage(imageLiteralResourceName: "CupBlender")
 var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
 var appleImage = UIImage(imageLiteralResourceName: "Apple")
@@ -92,71 +95,85 @@ public struct GameView: View {
             }
             .padding(-100)
             
-            ZStack {
+//            ZStack {
                 
                 //// Blender Buttons
-                HStack {
+//                HStack {
                     
-                    //// Clear Blender
-                    Button(action: {
-                        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
-                            self.game.fluidLevel = self.game.initialFluidLevel
-                            self.game.fruitsCount = 0
-                            self.game.currentSequence = RoundSequence()
-                            self.game.objectWillChange.send()
-                        }
-                    }, label: {
-                        Text("Clear Blender")
-                            .background(Color.black)
-                    })
-                    .padding()
-                    .padding([.trailing, .leading], 100)
+//                    //// Clear Blender
+//                    Button(action: {
+//                        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
+//                            self.game.fluidLevel = self.game.initialFluidLevel
+//                            self.game.fruitsCount = 0
+//                            self.game.currentSequence = RoundSequence()
+//                            self.game.objectWillChange.send()
+//                        }
+//                    }, label: {
+//                        Text("Clear Blender")
+//                            .background(Color.black)
+//                    })
+//                    .padding()
+//                    .padding([.trailing, .leading], 100)
+//
+//                    Spacer()
+//
+//                    //// Mix Juice
+//                    Button(action: {
+//
+//                        self.game.mix.toggle()
+//
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                            self.game.mix.toggle()
+//
+//                            withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
+//                                self.game.fluidLevel = self.game.initialFluidLevel
+//                                self.game.fruitsCount = 0
+//                                self.game.attempts.append(self.game.currentSequence)
+//                                self.game.currentRound += 1
+//                                self.game.currentSequence = RoundSequence()
+//                                self.game.objectWillChange.send()
+//                            }
+//                        }
+//                    }, label: {
+//                        Text("Mix Juice")
+//                            .background(Color.black)
+//                    })
+//                    .padding()
+//                    .padding([.trailing, .leading], 100)
                     
-                    Spacer()
-                    
-                    //// Mix Juice
-                    Button(action: {
-                        
-                        self.game.mix.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            self.game.mix.toggle()
-                            
-                            withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
-                                self.game.fluidLevel = self.game.initialFluidLevel
-                                self.game.fruitsCount = 0
-                                self.game.attempts.append(self.game.currentSequence)
-                                self.game.currentRound += 1
-                                self.game.currentSequence = RoundSequence()
-                                self.game.objectWillChange.send()
-                            }
-                        }
-                    }, label: {
-                        Text("Mix Juice")
-                            .background(Color.black)
-                    })
-                    .padding()
-                    .padding([.trailing, .leading], 100)
-                    
-                }.padding()
-
+//                }.padding()
+                
                 //// Blender and Booth
                 VStack(alignment: .center){
                     
                     BoothView(game: game)
                         .padding()
-                        .offset(y: 310)
+                        .offset(y: 300)
                     
-                    VStack {
-                        BlenderView(game: game)
+                    HStack(alignment: .center) {
+                        VStack {
+                            CupBlenderView(game: self.game)
+                            
+                            BaseBlenderView(game: self.game)
+                                .frame(width: 162, height: 162, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .offset(y: -25)
+                        }
+                        .padding(.trailing, 50)
                         
-                        BaseBlenderView()
-                            .frame(width: 162, height: 162, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .offset(y: -25)
+                        Image(uiImage: receipeCardImage)
+                            .resizable()
+                            .frame(width: 350, height: 230, alignment: .top)
+                            .padding(.leading, 50)
+                            .offset(y: -70)
                     }
-                    .offset(y: -180)
+                    .offset(y: -170)
+                    .padding(.horizontal)
                 }
-            }
+                
+                
+                
+//            }
+//            .padding()
         }
         .frame(width: 770, height: 1000, alignment: .center)
         .background(

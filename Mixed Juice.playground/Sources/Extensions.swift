@@ -24,4 +24,7 @@ public extension Comparable {
 
 public extension Color {
     static var lightBlue = Color(UIColor(red: 0.35, green: 0.80, blue: 0.93, alpha: 1.0))
+    static var lightPurple = Color(UIColor(red: 0.47, green: 0.314, blue: 0.61, alpha: 1.0))
+    static var lightGrey = Color(UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0))
+
 }
