@@ -21,10 +21,8 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 7 {
-                        RoundHistoryView(attempt: self.game.attempts[6])
-                            .offset(y: 15)
+                        HistoryRoundView(attempt: self.game.attempts[6])
                     }
-                    
                 }
                 
                 //// Eighth Sequence Tried
@@ -35,10 +33,8 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 8 {
-                        RoundHistoryView(attempt: self.game.attempts[7])
-                            .offset(y: 15)
+                        HistoryRoundView(attempt: self.game.attempts[7])
                     }
-                    
                 }
             }
             .offset(y: 285)
@@ -52,8 +48,7 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 5 {
-                        RoundHistoryView(attempt: self.game.attempts[4])
-                        .offset(y: 15)
+                        HistoryRoundView(attempt: self.game.attempts[4])
                     }
                 }
                 
@@ -65,8 +60,7 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 6 {
-                        RoundHistoryView(attempt: self.game.attempts[5])
-                        .offset(y: 15)
+                        HistoryRoundView(attempt: self.game.attempts[5])
                     }
                 }
             }
@@ -81,9 +75,10 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 3 {
-                        RoundHistoryView(attempt: self.game.attempts[2])
-                        .offset(y: 15)
-                    }                }
+                        HistoryRoundView(attempt: self.game.attempts[2])
+                    }
+                    
+                }
                 
                 //// Fourth Sequence Tried
                 ZStack{
@@ -93,8 +88,7 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 4 {
-                        RoundHistoryView(attempt: self.game.attempts[3])
-                        .offset(y: 15)
+                        HistoryRoundView(attempt: self.game.attempts[3])
                     }
                 }
             }
@@ -110,10 +104,8 @@ struct BoothView: View {
                             .offset(x: 5)
                         
                         if self.game.currentRound >= 1 {
-                            RoundHistoryView(attempt: self.game.attempts[0])
-                            .offset(y: 15)
+                            HistoryRoundView(attempt: self.game.attempts[0])
                         }
-                        
                     }
                     
                     //// Second Sequence Tried
@@ -124,8 +116,7 @@ struct BoothView: View {
                             .offset(x: -5)
                         
                         if self.game.currentRound >= 2 {
-                            RoundHistoryView(attempt: self.game.attempts[1])
-                            .offset(y: 15)
+                            HistoryRoundView(attempt: self.game.attempts[1])
                         }
                     }
                 }
@@ -142,43 +133,6 @@ struct BoothView: View {
     }
 }
 
-struct RoundHistoryView: View {
-    
-    var attempt: RoundSequence
-    
-    var body: some View {
-        HStack {
-            Image(uiImage: attempt.fruits[0])
-                .resizable()
-                .frame(width: 60, height: 50, alignment: .center)
-                .scaledToFill()
-            
-            Image(uiImage: attempt.fruits[1])
-                .resizable()
-                .frame(width: 60, height: 50, alignment: .center)
-                .scaledToFill()
-                .offset(x: -10)
-            
-            Image(uiImage: attempt.fruits[2])
-                .resizable()
-                .frame(width: 60, height: 50, alignment: .center)
-                .scaledToFill()
-                .offset(x: -20)
-            
-            Image(uiImage: attempt.fruits[3])
-                .resizable()
-                .frame(width: 60, height: 50, alignment: .center)
-                .scaledToFill()
-                .offset(x: -30)
-            
-            Image(uiImage: baseBlenderImage)
-                .resizable()
-                .frame(width: 60, height: 60, alignment: .center)
-                .scaledToFill()
-                .offset(y: -10)
-        }
-    }
-}
 
 //struct DragInsertDelegate: DropDelegate {
 //    @ObservedObject var environment: GameEnvironment?

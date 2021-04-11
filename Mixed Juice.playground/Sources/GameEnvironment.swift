@@ -2,6 +2,8 @@ import SwiftUI
 
 class GameEnvironment: ObservableObject {
     
+    var ingredients: [UIImage] = []
+    var secretReceipe: [UIImage] = []
     var currentRound: Int = 0
     @Published var attempts: [RoundSequence] = []
     @Published var currentSequence: RoundSequence = RoundSequence()
@@ -21,6 +23,8 @@ class GameEnvironment: ObservableObject {
     }
     
     func newGame() {
+        self.ingredients = [strawberryImage, appleImage, avocadoImage, lemonImage]
+        self.secretReceipe = self.createReceipeFromIngredients()
         self.currentRound = 0
         self.attempts = []
         self.currentSequence = RoundSequence()
@@ -29,9 +33,19 @@ class GameEnvironment: ObservableObject {
         self.mix = false
     }
      
-    func getImage(_ index: Int) -> UIImage {
+    private func createReceipeFromIngredients() -> [UIImage] {
+        var receipe: [UIImage] = []
+        
+        for _ in 0..<4 {
+            receipe.append(self.ingredients.randomElement()!)
+        }
+        
+        return receipe
+    }
+    
+    func getCurrentSequenceImageAt(_ index: Int) -> UIImage {
         if index < self.fruitsCount {
-            return self.currentSequence.fruits[index]
+            return self.currentSequence.receipe[index]
         } else {
             return UIImage()
         }

@@ -102,6 +102,7 @@ struct Trapezoid: Shape {
 
 struct BaseBlenderView: View {
     @ObservedObject var game: GameEnvironment
+    @State var feedbackIsVisible: Bool = false
     
     var body: some View {
         
@@ -112,37 +113,69 @@ struct BaseBlenderView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 
                 Button(action: {
-                    self.game.mix.toggle()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        self.game.mix.toggle()
-                        
-                        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
-                            self.game.fluidLevel = self.game.initialFluidLevel
-                            self.game.fruitsCount = 0
-                            self.game.attempts.append(self.game.currentSequence)
-                            self.game.currentRound += 1
-                            self.game.currentSequence = RoundSequence()
-                            self.game.objectWillChange.send()
+                    if game.fruitsCount == 4 {
+
+                        if !feedbackIsVisible {
+                            mixJuice()
                         }
-                    }
-                }, label: {
-                    ZStack{
-                        Circle()
-                            .fill(Color.lightPurple)
-                            .frame(width: geometry.size.width/2, height: geometry.size.width/2)
-                            .shadow(radius: 5.0)
-                        
-                        Circle()
-                            .fill(Color.lightGrey)
-                            .frame(width: geometry.size.width/3.5, height: geometry.size.width/3.5)
-                            .shadow(radius: 2.0)
+                        self.feedbackIsVisible.toggle()
 
                     }
+                }, label: {
+                    
+                    if !feedbackIsVisible{
+                        ZStack{
+                            Circle()
+                                .fill(Color.lightPurple)
+                                .frame(width: geometry.size.width/2.5, height: geometry.size.width/2.5)
+                                .shadow(radius: 5.0)
+                            
+                            Circle()
+                                .fill(Color.lightGrey)
+                                .frame(width: geometry.size.width/3.5, height: geometry.size.width/3.5)
+                                .shadow(radius: 2.0)
+
+                        }
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.lightPurple)
+                                .frame(width: geometry.size.width/2.5, height: geometry.size.width/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .shadow(radius: 5.0)
+                                .cornerRadius(10)
+                        }
+                    }
+                    
                 })
 
             }
         }
         
     }
+    
+    //// Mix Juice by 1 second
+    private func mixJuice() {
+        
+        self.game.mix.toggle()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.game.mix.toggle()
+            
+            withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
+                self.game.fluidLevel = self.game.initialFluidLevel
+                self.game.fruitsCount = 0
+                self.game.attempts.append(self.game.currentSequence)
+                self.game.currentRound += 1
+                self.game.currentSequence = RoundSequence()
+                self.game.objectWillChange.send()
+            }
+        }
+    }
+
+    private func clearBlender() {
+        
+    }
+    
+    
+    
 }
