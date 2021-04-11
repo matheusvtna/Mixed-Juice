@@ -196,14 +196,8 @@ public struct GameView: View {
                     .offset(y: 300)
                 
                 HStack(alignment: .center) {
-                    VStack {
-                        CupBlenderView(game: self.game)
-                        
-                        BaseBlenderView(game: self.game)
-                            .frame(width: 162, height: 162, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .offset(y: -25)
-                    }
-                    .padding(.trailing, 50)
+                    BlenderView(game: game)
+                        .padding(.trailing, 50)
                     
                     ZStack {
                         Image(uiImage: receipeCardImage)

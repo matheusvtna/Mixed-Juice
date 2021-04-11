@@ -21,7 +21,7 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 7 {
-                        HistoryRoundView(attempt: self.game.attempts[6])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[6])
                     }
                 }
                 
@@ -33,7 +33,7 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 8 {
-                        HistoryRoundView(attempt: self.game.attempts[7])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[7])
                     }
                 }
             }
@@ -48,7 +48,7 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 5 {
-                        HistoryRoundView(attempt: self.game.attempts[4])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[4])
                     }
                 }
                 
@@ -60,7 +60,7 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 6 {
-                        HistoryRoundView(attempt: self.game.attempts[5])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[5])
                     }
                 }
             }
@@ -75,7 +75,7 @@ struct BoothView: View {
                         .offset(x: 5)
                     
                     if self.game.currentRound >= 3 {
-                        HistoryRoundView(attempt: self.game.attempts[2])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[2])
                     }
                     
                 }
@@ -88,7 +88,7 @@ struct BoothView: View {
                         .offset(x: -5)
                     
                     if self.game.currentRound >= 4 {
-                        HistoryRoundView(attempt: self.game.attempts[3])
+                        HistoryRoundView(game: game, attempt: self.game.attempts[3])
                     }
                 }
             }
@@ -104,7 +104,7 @@ struct BoothView: View {
                             .offset(x: 5)
                         
                         if self.game.currentRound >= 1 {
-                            HistoryRoundView(attempt: self.game.attempts[0])
+                            HistoryRoundView(game: game, attempt: self.game.attempts[0])
                         }
                     }
                     
@@ -116,7 +116,7 @@ struct BoothView: View {
                             .offset(x: -5)
                         
                         if self.game.currentRound >= 2 {
-                            HistoryRoundView(attempt: self.game.attempts[1])
+                            HistoryRoundView(game: game, attempt: self.game.attempts[1])
                         }
                     }
                 }

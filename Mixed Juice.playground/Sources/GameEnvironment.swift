@@ -13,6 +13,11 @@ class GameEnvironment: ObservableObject {
     
     let initialFluidLevel: CGFloat = 75.0
     
+    init() {
+        self.newGame()
+        print("oi")
+    }
+    
     func resetRound() {
         self.currentRound += 1
         self.attempts.append(currentSequence)
@@ -31,6 +36,8 @@ class GameEnvironment: ObservableObject {
         self.fruitsCount = 0
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
+        
+        print(secretReceipe)
     }
      
     private func createReceipeFromIngredients() -> [UIImage] {
@@ -50,6 +57,5 @@ class GameEnvironment: ObservableObject {
             return UIImage()
         }
     }
-    
 }
 

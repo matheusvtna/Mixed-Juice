@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HistoryRoundView: View {
     
+    @ObservedObject var game: GameEnvironment
     var attempt: RoundSequence
     
     var body: some View {
@@ -29,9 +30,8 @@ struct HistoryRoundView: View {
                 .scaledToFill()
                 .offset(x: -30)
             
-            Image(uiImage: baseBlenderImage)
-                .resizable()
-                .frame(width: 60, height: 60, alignment: .center)
+            SmallBaseBlenderView(size: 60, hits: attempt.hits)
+                .frame(width: 65, height: 65, alignment: .center)
                 .scaledToFill()
                 .offset(y: -10)
         }
@@ -48,25 +48,25 @@ struct CurrentRoundView: View {
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
-                .offset(x: -25)
+                .padding(.leading, 50)
             
             Image(uiImage: game.getCurrentSequenceImageAt(1))
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
-                .offset(x: 5)
-            
+                .padding(.leading, 25)
+
             Image(uiImage: game.getCurrentSequenceImageAt(2))
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
-                .offset(x: 35)
-            
+                .padding(.leading, 20)
+
             Image(uiImage: game.getCurrentSequenceImageAt(3))
                 .resizable()
                 .frame(width: 50, height: 40, alignment: .center)
                 .scaledToFill()
-                .offset(x: 65)
+                .padding(.leading, 20)
         }
     }
 }
