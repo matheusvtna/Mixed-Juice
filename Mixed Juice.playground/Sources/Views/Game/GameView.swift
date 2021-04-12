@@ -41,6 +41,7 @@ var strawberryCleanImage = UIImage(imageLiteralResourceName: "StrawberryClean")
 
 public struct GameView: View {
     
+    @EnvironmentObject var settings: UserSettings
     @ObservedObject var game = GameEnvironment()
     
     public init() {}

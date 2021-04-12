@@ -38,7 +38,7 @@ class GameEnvironment: ObservableObject {
     
     func newGame() {
         self.ingredients = ["Strawberry", "Orange", "Avocado", "Peach"]
-        self.secretReceipe = ["Strawberry", "Strawberry", "Avocado", "Orange"] //self.createReceipeFromIngredients()
+        self.secretReceipe = self.createReceipeFromIngredients()
         self.currentRound = 0
         self.roundEnded = false
         self.attempts = []
@@ -49,9 +49,7 @@ class GameEnvironment: ObservableObject {
         self.hasFruitSelected = false
         self.insertInReceipe = [false, false, false, false]
         self.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
-        self.selectedFruit = UIImage()
-        
-//        print(secretReceipe)
+        self.selectedFruit = UIImage()        
     }
      
     private func createReceipeFromIngredients() -> [String] {
