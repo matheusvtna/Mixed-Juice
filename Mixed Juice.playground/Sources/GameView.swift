@@ -72,23 +72,36 @@ public struct GameView: View {
     }
         
     private func selectedFruit(fruit: UIImage) {
-        self.game.selectedFruit = fruit
-        self.game.hasFruitSelected.toggle()
+        let cleanedFruit = getFruitWithoutShadow(fruit: fruit)
+        
+        if self.game.selectedFruit == cleanedFruit {
+            self.game.hasFruitSelected.toggle()
+        } else {
+            self.game.hasFruitSelected = true
+        }
+        
+        self.game.selectedFruit = cleanedFruit
         self.game.objectWillChange.send()
     }
     
-//    private func addFruit(fruit: UIImage) {
-//        let fruitsCount = self.game.currentSequence.fruits.count
-//        let fruitCleaned = self.getFruitWithoutShadow(fruit: fruit)
-//
-//        if fruitsCount < 4 {
-//            self.game.currentSequence.fruits.append(fruit)
-//            self.game.currentSequence.receipe.append(fruitCleaned)
-//            self.game.fruitsCount += 1
-//            self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
-//            self.game.objectWillChange.send()
-//        }
-//    }
+    private func thisFruitIsSelected(fruit: UIImage) -> Bool {
+        let cleanedFruit = getFruitWithoutShadow(fruit: fruit)
+        
+        if self.game.selectedFruit == cleanedFruit {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func getScaleEffect(fruit: UIImage) -> CGFloat {
+
+        if self.game.hasFruitSelected && thisFruitIsSelected(fruit: fruit) {
+            return 1.125
+        } else {
+            return 0.875
+        }
+    }
     
     public var body: some View {
         VStack(alignment: .center) {
@@ -103,43 +116,56 @@ public struct GameView: View {
                     Image(uiImage: strawberryImage)
                         .resizable()
                         .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaleEffect(getScaleEffect(fruit: strawberryImage))
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: strawberryImage))
+                            self.selectedFruit(fruit: strawberryImage)
                             //self.addFruit(fruit: strawberryImage)
                         }
+                        .shadow(radius: thisFruitIsSelected(fruit: strawberryImage) ? 2.0 : 0)
+                        .opacity(thisFruitIsSelected(fruit: strawberryImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
+
                     
                     Image(uiImage: orangeImage)
                         .resizable()
                         .frame(width: 80, height: 80, alignment: .center)
+                        .scaleEffect(getScaleEffect(fruit: orangeImage))
+                        .shadow(radius: thisFruitIsSelected(fruit: orangeImage) ? 2.0 : 0)
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: orangeImage))
+                            self.selectedFruit(fruit: orangeImage)
                             //self.addFruit(fruit: strawberryImage)
                         }
+                        .opacity(thisFruitIsSelected(fruit: orangeImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
                     
                     Image(uiImage: avocadoImage)
                         .resizable()
                         .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaleEffect(getScaleEffect(fruit: avocadoImage))
+                        .shadow(radius: thisFruitIsSelected(fruit: avocadoImage) ? 2.0 : 0)
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: avocadoImage))
+                            self.selectedFruit(fruit: avocadoImage)
                             //self.addFruit(fruit: strawberryImage)
                         }
+                        .opacity(thisFruitIsSelected(fruit: avocadoImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
                     
                     Image(uiImage: peachImage)
                         .resizable()
                         .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .scaleEffect(getScaleEffect(fruit: peachImage))
+                        .shadow(radius: thisFruitIsSelected(fruit: peachImage) ? 2.0 : 0)
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: peachImage))
+                            self.selectedFruit(fruit: peachImage)
                             //self.addFruit(fruit: strawberryImage)
                         }
-                    
+                        .opacity(thisFruitIsSelected(fruit: peachImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
+
                 }
                 .offset(y: -47)
             }

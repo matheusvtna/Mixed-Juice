@@ -106,6 +106,9 @@ struct BaseBlenderView: View {
     private func mixJuice() {
         
         self.game.mix.toggle()
+        self.game.hasFruitSelected = false
+        self.game.selectedFruit = UIImage()
+        self.game.roundEnded = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.game.mix.toggle()
@@ -118,6 +121,7 @@ struct BaseBlenderView: View {
             self.game.fruitsCount = 0
             self.game.attempts.append(self.game.currentSequence)
             self.game.currentRound += 1
+            self.game.roundEnded = false
             self.game.currentSequence = RoundSequence()
             self.game.insertInReceipe = [false, false, false, false]
             self.game.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]

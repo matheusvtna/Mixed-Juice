@@ -5,6 +5,7 @@ class GameEnvironment: ObservableObject {
     var ingredients: [UIImage] = []
     var secretReceipe: [UIImage] = []
     var currentRound: Int = 0
+    var roundEnded: Bool = false
     @Published var attempts: [RoundSequence] = []
     @Published var currentSequence: RoundSequence = RoundSequence()
     @Published var fruitsCount: Int = 0
@@ -15,7 +16,6 @@ class GameEnvironment: ObservableObject {
     @Published var imagesReceipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
 
     var selectedFruit: UIImage = UIImage()
-    
     
     let initialFluidLevel: CGFloat = 75.0
     
@@ -31,6 +31,8 @@ class GameEnvironment: ObservableObject {
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
         self.hasFruitSelected = false
+        self.insertInReceipe = [false, false, false, false]
+        self.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
         self.selectedFruit = UIImage()
     }
     
@@ -38,12 +40,15 @@ class GameEnvironment: ObservableObject {
         self.ingredients = [strawberryImage, peachImage, avocadoImage, orangeImage]
         self.secretReceipe = self.createReceipeFromIngredients()
         self.currentRound = 0
+        self.roundEnded = false
         self.attempts = []
         self.currentSequence = RoundSequence()
         self.fruitsCount = 0
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
         self.hasFruitSelected = false
+        self.insertInReceipe = [false, false, false, false]
+        self.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
         self.selectedFruit = UIImage()
         
         print(secretReceipe)

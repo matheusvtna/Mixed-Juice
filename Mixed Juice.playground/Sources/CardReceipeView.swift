@@ -49,15 +49,10 @@ struct CardReceipeView: View {
                 ForEach(0..<4) { index in
                     
                     Button(action: {
-                        print("clicou")
-                        
-                        if self.game.hasFruitSelected {
-                            print("tem fruta selecionada")
+                        if self.game.hasFruitSelected && !self.game.roundEnded {
                             self.game.insertInReceipe[index].toggle()
                             self.game.imagesReceipe[index] = self.game.selectedFruit
-                            self.addFruit(fruitCleaned: self.game.selectedFruit)
-                        
-                            self.game.hasFruitSelected.toggle()
+                            self.addFruit(fruitCleaned: self.game.selectedFruit)                        
                             self.game.objectWillChange.send()
                         }
                         
@@ -72,7 +67,7 @@ struct CardReceipeView: View {
                                 .resizable()
                                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         }
-                        .shadow(radius: self.game.hasFruitSelected ? 3.0 : 0.0)
+                        .shadow(radius: self.game.hasFruitSelected && !self.game.roundEnded ? 3.0 : 0.0)
 
                     })
                     .offset(y: 40)
