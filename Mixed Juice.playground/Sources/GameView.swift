@@ -72,16 +72,18 @@ public struct GameView: View {
     }
         
     private func selectedFruit(fruit: UIImage) {
-        let cleanedFruit = getFruitWithoutShadow(fruit: fruit)
-        
-        if self.game.selectedFruit == cleanedFruit {
-            self.game.hasFruitSelected.toggle()
-        } else {
-            self.game.hasFruitSelected = true
+        if !self.game.roundEnded {
+            let cleanedFruit = getFruitWithoutShadow(fruit: fruit)
+            
+            if self.game.selectedFruit == cleanedFruit {
+                self.game.hasFruitSelected.toggle()
+            } else {
+                self.game.hasFruitSelected = true
+            }
+            
+            self.game.selectedFruit = cleanedFruit
+            self.game.objectWillChange.send()            
         }
-        
-        self.game.selectedFruit = cleanedFruit
-        self.game.objectWillChange.send()
     }
     
     private func thisFruitIsSelected(fruit: UIImage) -> Bool {
@@ -121,7 +123,6 @@ public struct GameView: View {
                         .padding()
                         .onTapGesture {
                             self.selectedFruit(fruit: strawberryImage)
-                            //self.addFruit(fruit: strawberryImage)
                         }
                         .shadow(radius: thisFruitIsSelected(fruit: strawberryImage) ? 2.0 : 0)
                         .opacity(thisFruitIsSelected(fruit: strawberryImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
@@ -136,9 +137,10 @@ public struct GameView: View {
                         .padding()
                         .onTapGesture {
                             self.selectedFruit(fruit: orangeImage)
-                            //self.addFruit(fruit: strawberryImage)
                         }
-                        .opacity(thisFruitIsSelected(fruit: orangeImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
+                        .opacity(withAnimation(Animation.linear(duration: 2.0)) {
+                                    thisFruitIsSelected(fruit: orangeImage) || !self.game.hasFruitSelected ? 1.0 : 0.75
+                        })
                     
                     Image(uiImage: avocadoImage)
                         .resizable()
@@ -149,7 +151,6 @@ public struct GameView: View {
                         .padding()
                         .onTapGesture {
                             self.selectedFruit(fruit: avocadoImage)
-                            //self.addFruit(fruit: strawberryImage)
                         }
                         .opacity(thisFruitIsSelected(fruit: avocadoImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
                     
@@ -162,7 +163,6 @@ public struct GameView: View {
                         .padding()
                         .onTapGesture {
                             self.selectedFruit(fruit: peachImage)
-                            //self.addFruit(fruit: strawberryImage)
                         }
                         .opacity(thisFruitIsSelected(fruit: peachImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
 
@@ -183,13 +183,6 @@ public struct GameView: View {
                         .padding(.trailing, 50)
                     
                     ZStack {
-                        //                        Image(uiImage: UIImage())
-                        //                            .resizable()
-                        //                            .frame(width: 350, height: 230, alignment: .top)
-                        //                            .padding(.leading, 50)
-                        //                            .offset(y: -70)
-                        
-                        
                         CardReceipeView(game: self.game)
                             .frame(width: 350, height: 230, alignment: .top)
                             .padding(.leading, 50)
@@ -198,29 +191,17 @@ public struct GameView: View {
                         Text(self.game.fruitsCount == 4 ? "Turn on the blender to mix juice!" : "")
                             .offset(x: 20, y: 90)
                         
-                        //                        HStack {
-                        //                            CurrentRoundView(game: game)
-                        //                                .frame(width: 300, height: 66, alignment: .center)
-                        //                                .offset(y: -30)
-                        //                        }
-                        
-                        
                     }
                 }
                 .offset(y: -170)
                 .padding(.horizontal)
             }
-            
-            
-            
-            //            }
-            //            .padding()
         }
         .frame(width: 770, height: 1000, alignment: .center)
         .background(
             Image(uiImage: backgroundImage)
                 .resizable()
-                .frame(width: 770, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         )
     }
 }

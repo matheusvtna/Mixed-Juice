@@ -4,17 +4,21 @@ struct CardReceipeView: View {
     
     @ObservedObject var game: GameEnvironment
     
-    private func addFruit(fruitCleaned: UIImage) {
-        let fruitsCount = self.game.currentSequence.fruits.count
+    private func addFruit(fruitCleaned: UIImage, index: Int) {
+        let fruitsCount = self.game.fruitsCount
         let fruitShadow = self.getFruitWithShadow(fruit: fruitCleaned)
+
+        self.game.currentSequence.fruits[index] = fruitShadow
+        self.game.currentSequence.receipe[index] = fruitCleaned
         
         if fruitsCount < 4 {
-            self.game.currentSequence.fruits.append(fruitShadow)
-            self.game.currentSequence.receipe.append(fruitCleaned)
             self.game.fruitsCount += 1
             self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
-            self.game.objectWillChange.send()
         }
+
+        self.game.objectWillChange.send()
+        
+//        print(self.game.currentSequence.fruits)
     }
     
     private func getFruitWithShadow(fruit: UIImage) -> UIImage {
@@ -52,7 +56,7 @@ struct CardReceipeView: View {
                         if self.game.hasFruitSelected && !self.game.roundEnded {
                             self.game.insertInReceipe[index].toggle()
                             self.game.imagesReceipe[index] = self.game.selectedFruit
-                            self.addFruit(fruitCleaned: self.game.selectedFruit)                        
+                            self.addFruit(fruitCleaned: self.game.selectedFruit, index: index)
                             self.game.objectWillChange.send()
                         }
                         

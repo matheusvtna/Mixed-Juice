@@ -1,20 +1,12 @@
 import SwiftUI
 
 public class RoundSequence {
-    var fruits: [UIImage] = []
-    var receipe: [UIImage] = []
+    var fruits: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
+    var receipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
     var hits: [Feedback] = []
     
     public enum Feedback {
         case correct, almost, incorrect
-        
-//        var color: UIColor {
-//            switch self {
-//            case .correct: return .green
-//            case .almost: return .yellow
-//            case .incorrect: return .red
-//            }
-//        }
     }
     
     public init(fruits: [UIImage], receipe: [UIImage], hits: [Feedback]) {
@@ -24,8 +16,8 @@ public class RoundSequence {
     }
     
     public init(){
-        self.fruits = []
-        self.receipe = []
+        self.fruits = [UIImage(), UIImage(), UIImage(), UIImage()]
+        self.receipe = [UIImage(), UIImage(), UIImage(), UIImage()]
         self.hits = []
     }
     
@@ -33,23 +25,43 @@ public class RoundSequence {
         return self.hits
     }
     
-    public func defineHits(secretReceipe: [UIImage]) {
+    public func defineHits(secretReceipe: [String]) {
         var corrects: Int = 0
         var almosts: Int = 0
         var incorrects: Int = 0
+        var correctsIndex: [Int] = []
+        var secretReceipeImages: [UIImage] = secretReceipe.map({UIImage(imageLiteralResourceName: $0)})
         
         for index in 0..<4 {
-            if self.fruits[index] == secretReceipe[index] {
+            if self.fruits[index] == secretReceipeImages[index] {
                 corrects += 1
-                self.hits.append(.correct)
+                correctsIndex.append(index)
+                secretReceipeImages[index] = UIImage()
             }
         }
         
-        incorrects = self.fruits.filter({
-            !secretReceipe.contains($0)
-        }).count
-         
-        almosts = 4 - corrects - incorrects
+//        print("Imagens apos corrects: ", secretReceipeImages, "\n")
+        
+        for index in 0..<4 {
+//            print("Imagens antes: ", secretReceipeImages)
+//            print("Buscando: ", self.fruits[index])
+            
+            if !correctsIndex.contains(index) {
+                if let ind = secretReceipeImages.lastIndex(of: self.fruits[index]){
+//                    print("Encontrei no indice ", ind)
+                    almosts += 1
+                    secretReceipeImages[ind] = UIImage()
+                }
+            }
+            
+//            print("Imagens depois: ", secretReceipeImages, "\n")
+        }
+        
+        incorrects = 4 - corrects - almosts
+        
+        for _ in 0..<corrects {
+            self.hits.append(.correct)
+        }
         
         for _ in 0..<almosts {
             self.hits.append(.almost)
