@@ -1,8 +1,8 @@
-import PlaygroundSupport
 import SwiftUI
 
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
 var receipeCardImage = UIImage(imageLiteralResourceName: "ReceipeCard")
+var card = UIImage(imageLiteralResourceName: "Card")
 
 // Booth and Shelf
 var bigShelfImage = UIImage(imageLiteralResourceName: "BigShelf")
@@ -71,6 +71,12 @@ public struct GameView: View {
         return fruitCleaned
     }
     
+    private func selectedFruit(fruit: UIImage) {
+        self.game.selectedFruit = fruit
+        self.game.hasFruitSelected.toggle()
+        self.game.objectWillChange.send()
+    }
+    
     private func addFruit(fruit: UIImage) {
         let fruitsCount = self.game.currentSequence.fruits.count
         let fruitCleaned = self.getFruitWithoutShadow(fruit: fruit)
@@ -100,9 +106,10 @@ public struct GameView: View {
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.addFruit(fruit: strawberryImage)
+                            
+                            self.selectedFruit(fruit: strawberryCleanImage)
+                            //self.addFruit(fruit: strawberryImage)
                         }
-                    //                        .onDrag({ return NSItemProvider(object: strawberryImage) })
                     
                     Image(uiImage: orangeImage)
                         .resizable()
@@ -112,8 +119,6 @@ public struct GameView: View {
                         .onTapGesture {
                             self.addFruit(fruit: orangeImage)
                         }
-                    //                        .onDrag({ return NSItemProvider(object: orangeImage) })
-                    
                     
                     Image(uiImage: avocadoImage)
                         .resizable()
@@ -123,7 +128,6 @@ public struct GameView: View {
                         .onTapGesture {
                             self.addFruit(fruit: avocadoImage)
                         }
-                    //                        .onDrag({ return NSItemProvider(object: avocadoImage) })
                     
                     Image(uiImage: peachImage)
                         .resizable()
@@ -133,60 +137,11 @@ public struct GameView: View {
                         .onTapGesture {
                             self.addFruit(fruit: peachImage)
                         }
-                    //                        .onDrag({ return NSItemProvider(object: peachImage) })
                     
                 }
                 .offset(y: -47)
             }
             .padding(-100)
-            
-            //            ZStack {
-            
-            //// Blender Buttons
-            //                HStack {
-            
-            //                    //// Clear Blender
-            //                    Button(action: {
-            //                        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
-            //                            self.game.fluidLevel = self.game.initialFluidLevel
-            //                            self.game.fruitsCount = 0
-            //                            self.game.currentSequence = RoundSequence()
-            //                            self.game.objectWillChange.send()
-            //                        }
-            //                    }, label: {
-            //                        Text("Clear Blender")
-            //                            .background(Color.black)
-            //                    })
-            //                    .padding()
-            //                    .padding([.trailing, .leading], 100)
-            //
-            //                    Spacer()
-            //
-            //                    //// Mix Juice
-            //                    Button(action: {
-            //
-            //                        self.game.mix.toggle()
-            //
-            //                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            //                            self.game.mix.toggle()
-            //
-            //                            withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
-            //                                self.game.fluidLevel = self.game.initialFluidLevel
-            //                                self.game.fruitsCount = 0
-            //                                self.game.attempts.append(self.game.currentSequence)
-            //                                self.game.currentRound += 1
-            //                                self.game.currentSequence = RoundSequence()
-            //                                self.game.objectWillChange.send()
-            //                            }
-            //                        }
-            //                    }, label: {
-            //                        Text("Mix Juice")
-            //                            .background(Color.black)
-            //                    })
-            //                    .padding()
-            //                    .padding([.trailing, .leading], 100)
-            
-            //                }.padding()
             
             //// Blender and Booth
             VStack(alignment: .center){
@@ -200,8 +155,14 @@ public struct GameView: View {
                         .padding(.trailing, 50)
                     
                     ZStack {
-                        Image(uiImage: receipeCardImage)
-                            .resizable()
+                        //                        Image(uiImage: UIImage())
+                        //                            .resizable()
+                        //                            .frame(width: 350, height: 230, alignment: .top)
+                        //                            .padding(.leading, 50)
+                        //                            .offset(y: -70)
+                        
+                        
+                        CardReceipeView(game: self.game)
                             .frame(width: 350, height: 230, alignment: .top)
                             .padding(.leading, 50)
                             .offset(y: -70)
@@ -209,11 +170,11 @@ public struct GameView: View {
                         Text(self.game.fruitsCount == 4 ? "Turn on the blender to mix juice!" : "")
                             .offset(x: 20, y: 90)
                         
-                        HStack {
-                            CurrentRoundView(game: game)
-                                .frame(width: 300, height: 66, alignment: .center)
-                                .offset(y: -30)
-                        }
+                        //                        HStack {
+                        //                            CurrentRoundView(game: game)
+                        //                                .frame(width: 300, height: 66, alignment: .center)
+                        //                                .offset(y: -30)
+                        //                        }
                         
                         
                     }
@@ -234,4 +195,50 @@ public struct GameView: View {
                 .frame(width: 770, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         )
     }
+}
+
+struct CardReceipeView: View {
+    
+    @ObservedObject var game: GameEnvironment
+    @State var insertImage = [false, false, false, false]
+    @State var images: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
+    
+    var body: some View {
+        ZStack {
+            LazyHGrid(rows: [GridItem()], spacing: 10) {
+                ForEach(0..<4) { index in
+                    
+                    Button(action: {
+                        print("clicou")
+                        
+                        if self.game.hasFruitSelected {
+                            print("tem fruta selecionada")
+                            self.insertImage[index].toggle()
+                            self.images[index] = strawberryCleanImage
+                            self.game.hasFruitSelected.toggle()
+                            self.game.objectWillChange.send()
+                        }
+                        
+                    }, label: {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .border(Color.lightPurple, width: 2)
+                                .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            
+                            Image(uiImage: images[index])
+                                .resizable()
+                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)                                
+                        }
+
+                    })
+                    .offset(y: 40)
+
+                }
+                
+            }
+        }
+        .background(Image(uiImage: card).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+    }
+    
 }

@@ -10,6 +10,9 @@ class GameEnvironment: ObservableObject {
     @Published var fruitsCount: Int = 0
     @Published var fluidLevel: CGFloat = 75.0
     @Published var mix: Bool = false
+    @Published var hasFruitSelected: Bool = false
+    var selectedFruit: UIImage = UIImage()
+    
     
     let initialFluidLevel: CGFloat = 75.0
     
@@ -24,6 +27,8 @@ class GameEnvironment: ObservableObject {
         self.fruitsCount = 0
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
+        self.hasFruitSelected = false
+        self.selectedFruit = UIImage()
     }
     
     func newGame() {
@@ -35,6 +40,8 @@ class GameEnvironment: ObservableObject {
         self.fruitsCount = 0
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
+        self.hasFruitSelected = false
+        self.selectedFruit = UIImage()
         
         //print(secretReceipe)
     }
