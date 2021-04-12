@@ -30,10 +30,10 @@ struct HistoryRoundView: View {
                 .scaledToFill()
                 .offset(x: -30)
             
-            SmallBaseBlenderView(size: 60, hits: attempt.hits)
+            SmallBaseBlenderView(size: 65, hits: attempt.hits)
                 .frame(width: 65, height: 65, alignment: .center)
                 .scaledToFill()
-                .offset(y: -10)
+                .offset(y: -8)
         }
         .offset(y: 15)
     }

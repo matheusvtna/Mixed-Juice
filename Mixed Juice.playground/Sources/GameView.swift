@@ -201,7 +201,7 @@ public struct GameView: View {
         .background(
             Image(uiImage: backgroundImage)
                 .resizable()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         )
     }
 }

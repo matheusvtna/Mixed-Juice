@@ -154,7 +154,7 @@ struct ButtonBlenderView: View {
         if !self.feedbackIsVisible{
             ZStack {
                 Circle()
-                    .fill(Color.lightPurple)
+                    .fill(Color.white)
                     .frame(width: size/2.5, height: size/2.5)
                     .shadow(radius: 5.0)
 
@@ -167,7 +167,7 @@ struct ButtonBlenderView: View {
         } else {
             ZStack {
                 Rectangle()
-                    .fill(Color.lightPurple)
+                    .fill(Color.lightGrey)
                     .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(radius: 5.0)
                     .cornerRadius(10)
@@ -177,20 +177,26 @@ struct ButtonBlenderView: View {
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[0]))
                             .frame(width: size/10, height: size/10)
+                            .shadow(radius: 2.0)
                         
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[1]))
                             .frame(width: size/10, height: size/10)
+                            .shadow(radius: 2.0)
+
                     }
 
                     HStack {
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[2]))
                             .frame(width: size/10, height: size/10)
+                            .shadow(radius: 2.0)
 
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[3]))
                             .frame(width: size/10, height: size/10)
+                            .shadow(radius: 2.0)
+
                     }
                 }
                 .padding(.vertical)
@@ -222,7 +228,7 @@ struct SmallBaseBlenderView: View {
                 .frame(width: size, height: size, alignment: .center)
             
             Rectangle()
-                .fill(Color.lightPurple)
+                .fill(Color.lightGrey)
                 .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(radius: 5.0)
                 .cornerRadius(2)
@@ -232,26 +238,29 @@ struct SmallBaseBlenderView: View {
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[0]))
                         .frame(width: size/10, height: size/10)
+                        .offset(x: 2, y: 1)
                     
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[1]))
                         .frame(width: size/10, height: size/10)
+                        .offset(x: -2, y: 1)
                     
                 }
-                .padding(.horizontal, -8)
 
                 HStack {
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[2]))
                         .frame(width: size/10, height: size/10)
+                        .offset(x: 2, y: -1)
 
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[3]))
                         .frame(width: size/10, height: size/10)
+                        .offset(x: -2, y: -1)
+
                 }
-                .padding(.horizontal, -8)
             }
-            .padding(.vertical)
+            .padding(.all)
         }
     }
     
