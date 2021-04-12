@@ -15,7 +15,6 @@ class GameEnvironment: ObservableObject {
     
     init() {
         self.newGame()
-        print("oi")
     }
     
     func resetRound() {
@@ -28,7 +27,7 @@ class GameEnvironment: ObservableObject {
     }
     
     func newGame() {
-        self.ingredients = [strawberryImage, appleImage, avocadoImage, lemonImage]
+        self.ingredients = [strawberryImage, peachImage, avocadoImage, orangeImage]
         self.secretReceipe = self.createReceipeFromIngredients()
         self.currentRound = 0
         self.attempts = []
@@ -37,7 +36,7 @@ class GameEnvironment: ObservableObject {
         self.fluidLevel = self.initialFluidLevel
         self.mix = false
         
-        print(secretReceipe)
+        //print(secretReceipe)
     }
      
     private func createReceipeFromIngredients() -> [UIImage] {

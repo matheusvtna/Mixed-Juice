@@ -133,8 +133,8 @@ struct BaseBlenderView: View {
             if !feedbackIsVisible {
                 mixJuice()
             }
-            self.feedbackIsVisible.toggle()
             self.game.currentSequence.defineHits(secretReceipe: self.game.secretReceipe)
+            self.feedbackIsVisible.toggle()
         }
     }
 }
@@ -169,22 +169,21 @@ struct ButtonBlenderView: View {
                 VStack {
                     HStack {
                         Circle()
-                            .fill(Color.green)
+                            .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[0]))
                             .frame(width: size/10, height: size/10)
                         
                         Circle()
-                            .fill(Color.green)
+                            .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[1]))
                             .frame(width: size/10, height: size/10)
-                        
                     }
 
                     HStack {
                         Circle()
-                            .fill(Color.green)
+                            .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[2]))
                             .frame(width: size/10, height: size/10)
 
                         Circle()
-                            .fill(Color.green)
+                            .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[3]))
                             .frame(width: size/10, height: size/10)
                     }
                 }
@@ -192,6 +191,18 @@ struct ButtonBlenderView: View {
             }
         }
     }
+    
+    private func getColorFromHit(hit: RoundSequence.Feedback) -> Color {
+        if hit == RoundSequence.Feedback.correct {
+            return Color.green
+        } else if hit == RoundSequence.Feedback.almost {
+            return Color.yellow
+        } else {
+            return Color.red
+        }
+        
+    }
+    
 }
 
 struct SmallBaseBlenderView: View {
@@ -213,11 +224,11 @@ struct SmallBaseBlenderView: View {
             VStack {
                 HStack {
                     Circle()
-                        .fill(getColor(hit: hits[0]))
+                        .fill(self.getColorFromHit(hit: hits[0]))
                         .frame(width: size/10, height: size/10)
                     
                     Circle()
-                        .fill(getColor(hit: hits[1]))
+                        .fill(self.getColorFromHit(hit: hits[1]))
                         .frame(width: size/10, height: size/10)
                     
                 }
@@ -225,11 +236,11 @@ struct SmallBaseBlenderView: View {
 
                 HStack {
                     Circle()
-                        .fill(getColor(hit: hits[2]))
+                        .fill(self.getColorFromHit(hit: hits[2]))
                         .frame(width: size/10, height: size/10)
 
                     Circle()
-                        .fill(getColor(hit: hits[3]))
+                        .fill(self.getColorFromHit(hit: hits[3]))
                         .frame(width: size/10, height: size/10)
                 }
                 .padding(.horizontal, -8)
@@ -238,7 +249,7 @@ struct SmallBaseBlenderView: View {
         }
     }
     
-    func getColor(hit: RoundSequence.Feedback) -> Color {
+    private func getColorFromHit(hit: RoundSequence.Feedback) -> Color {
         if hit == RoundSequence.Feedback.correct {
             return Color.green
         } else if hit == RoundSequence.Feedback.almost {
