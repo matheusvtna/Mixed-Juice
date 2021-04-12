@@ -45,7 +45,7 @@ public struct GameView: View {
     
     public init() {}
     
-    private func getFruitWithoutShadow(fruit: UIImage) -> UIImage{
+    private func getFruitWithoutShadow(fruit: UIImage) -> UIImage {
         var fruitCleaned: UIImage
         
         if fruit == appleImage {
@@ -70,25 +70,25 @@ public struct GameView: View {
         
         return fruitCleaned
     }
-    
+        
     private func selectedFruit(fruit: UIImage) {
         self.game.selectedFruit = fruit
         self.game.hasFruitSelected.toggle()
         self.game.objectWillChange.send()
     }
     
-    private func addFruit(fruit: UIImage) {
-        let fruitsCount = self.game.currentSequence.fruits.count
-        let fruitCleaned = self.getFruitWithoutShadow(fruit: fruit)
-        
-        if fruitsCount < 4 {
-            self.game.currentSequence.fruits.append(fruit)
-            self.game.currentSequence.receipe.append(fruitCleaned)
-            self.game.fruitsCount += 1
-            self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
-            self.game.objectWillChange.send()
-        }
-    }
+//    private func addFruit(fruit: UIImage) {
+//        let fruitsCount = self.game.currentSequence.fruits.count
+//        let fruitCleaned = self.getFruitWithoutShadow(fruit: fruit)
+//
+//        if fruitsCount < 4 {
+//            self.game.currentSequence.fruits.append(fruit)
+//            self.game.currentSequence.receipe.append(fruitCleaned)
+//            self.game.fruitsCount += 1
+//            self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
+//            self.game.objectWillChange.send()
+//        }
+//    }
     
     public var body: some View {
         VStack(alignment: .center) {
@@ -106,8 +106,7 @@ public struct GameView: View {
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            
-                            self.selectedFruit(fruit: strawberryCleanImage)
+                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: strawberryImage))
                             //self.addFruit(fruit: strawberryImage)
                         }
                     
@@ -117,7 +116,8 @@ public struct GameView: View {
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.addFruit(fruit: orangeImage)
+                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: orangeImage))
+                            //self.addFruit(fruit: strawberryImage)
                         }
                     
                     Image(uiImage: avocadoImage)
@@ -126,7 +126,8 @@ public struct GameView: View {
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.addFruit(fruit: avocadoImage)
+                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: avocadoImage))
+                            //self.addFruit(fruit: strawberryImage)
                         }
                     
                     Image(uiImage: peachImage)
@@ -135,7 +136,8 @@ public struct GameView: View {
                         .scaledToFill()
                         .padding()
                         .onTapGesture {
-                            self.addFruit(fruit: peachImage)
+                            self.selectedFruit(fruit: self.getFruitWithoutShadow(fruit: peachImage))
+                            //self.addFruit(fruit: strawberryImage)
                         }
                     
                 }
@@ -195,50 +197,4 @@ public struct GameView: View {
                 .frame(width: 770, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         )
     }
-}
-
-struct CardReceipeView: View {
-    
-    @ObservedObject var game: GameEnvironment
-    @State var insertImage = [false, false, false, false]
-    @State var images: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
-    
-    var body: some View {
-        ZStack {
-            LazyHGrid(rows: [GridItem()], spacing: 10) {
-                ForEach(0..<4) { index in
-                    
-                    Button(action: {
-                        print("clicou")
-                        
-                        if self.game.hasFruitSelected {
-                            print("tem fruta selecionada")
-                            self.insertImage[index].toggle()
-                            self.images[index] = strawberryCleanImage
-                            self.game.hasFruitSelected.toggle()
-                            self.game.objectWillChange.send()
-                        }
-                        
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.white)
-                                .border(Color.lightPurple, width: 2)
-                                .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            
-                            Image(uiImage: images[index])
-                                .resizable()
-                                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)                                
-                        }
-
-                    })
-                    .offset(y: 40)
-
-                }
-                
-            }
-        }
-        .background(Image(uiImage: card).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
-    }
-    
 }

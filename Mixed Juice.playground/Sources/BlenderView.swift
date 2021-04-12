@@ -119,6 +119,8 @@ struct BaseBlenderView: View {
             self.game.attempts.append(self.game.currentSequence)
             self.game.currentRound += 1
             self.game.currentSequence = RoundSequence()
+            self.game.insertInReceipe = [false, false, false, false]
+            self.game.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
             self.game.objectWillChange.send()
         }
     }

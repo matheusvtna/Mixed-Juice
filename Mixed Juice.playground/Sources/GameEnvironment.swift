@@ -11,6 +11,9 @@ class GameEnvironment: ObservableObject {
     @Published var fluidLevel: CGFloat = 75.0
     @Published var mix: Bool = false
     @Published var hasFruitSelected: Bool = false
+    @Published var insertInReceipe: [Bool] = [false, false, false, false]
+    @Published var imagesReceipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
+
     var selectedFruit: UIImage = UIImage()
     
     
@@ -43,7 +46,7 @@ class GameEnvironment: ObservableObject {
         self.hasFruitSelected = false
         self.selectedFruit = UIImage()
         
-        //print(secretReceipe)
+        print(secretReceipe)
     }
      
     private func createReceipeFromIngredients() -> [UIImage] {
