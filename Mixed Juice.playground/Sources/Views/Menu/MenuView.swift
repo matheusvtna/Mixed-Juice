@@ -13,7 +13,9 @@ public struct MenuView: View {
                 Image(uiImage: startButtonImage)
                     .resizable()
                     .frame(width: 330, height: 90, alignment: .center)
+                    .shadow(radius: 5.0)
             })
+            .offset(y: 50)
         }
         .frame(width: 770, height: 1000, alignment: .center)
         .background(Image(uiImage: menuBackgroundImage).resizable().frame(width: 770, height: 1000, alignment: .center))
