@@ -10,11 +10,13 @@ public struct MenuView: View {
             Button(action: {
                 settings.page = 1
             }, label: {
-                Text("Trocar de pagina")
+                Image(uiImage: startButtonImage)
+                    .resizable()
+                    .frame(width: 330, height: 90, alignment: .center)
             })
         }
         .frame(width: 770, height: 1000, alignment: .center)
-        .background(Image(uiImage: backgroundImage).resizable().frame(width: 770, height: 1000, alignment: .center))
+        .background(Image(uiImage: menuBackgroundImage).resizable().frame(width: 770, height: 1000, alignment: .center))
 
     }
 }
