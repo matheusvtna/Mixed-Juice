@@ -4,7 +4,11 @@ class GameEnvironment: ObservableObject {
     
     var ingredients: [String] = []
     var secretReceipe: [String] = []
-    var currentRound: Int = 0
+    var currentRound: Int = 0 {
+        didSet {
+            self.checkEndGame()
+        }
+    }
     var roundEnded: Bool = false
     @Published var attempts: [RoundSequence] = []
     @Published var currentSequence: RoundSequence = RoundSequence()
@@ -14,7 +18,8 @@ class GameEnvironment: ObservableObject {
     @Published var hasFruitSelected: Bool = false
     @Published var insertInReceipe: [Bool] = [false, false, false, false]
     @Published var imagesReceipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
-
+    @Published var gameEnded: Bool = false
+    
     var selectedFruit: UIImage = UIImage()
     
     let initialFluidLevel: CGFloat = 75.0
@@ -49,9 +54,10 @@ class GameEnvironment: ObservableObject {
         self.hasFruitSelected = false
         self.insertInReceipe = [false, false, false, false]
         self.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
-        self.selectedFruit = UIImage()        
+        self.selectedFruit = UIImage()
+        self.gameEnded = false
     }
-     
+    
     private func createReceipeFromIngredients() -> [String] {
         var receipe: [String] = []
         
@@ -59,6 +65,7 @@ class GameEnvironment: ObservableObject {
             receipe.append(self.ingredients.randomElement()!)
         }
         
+        print(receipe)
         return receipe
     }
     
@@ -68,6 +75,21 @@ class GameEnvironment: ObservableObject {
         } else {
             return UIImage()
         }
+    }
+    
+    private func checkEndGame() {
+        let checkWin: Bool = self.checkWinner()
+        let checkLoser: Bool = self.checkLoser()
+        
+        self.gameEnded = checkWin || checkLoser
+    }
+    
+    func checkWinner() -> Bool {
+        return (self.currentSequence.hits.filter({$0 == RoundSequence.Feedback.correct}).count == 4)
+    }
+    
+    func checkLoser() -> Bool {
+        return (self.currentRound == 8)
     }
 }
 

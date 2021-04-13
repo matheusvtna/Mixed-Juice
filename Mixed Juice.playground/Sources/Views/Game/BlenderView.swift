@@ -116,17 +116,21 @@ struct BaseBlenderView: View {
     }
 
     private func clearBlender() {
-        withAnimation(Animation.linear(duration: Double(self.game.fruitsCount/2))){
+        withAnimation(Animation.linear(duration: 2.0)){
             self.game.fluidLevel = self.game.initialFluidLevel
-            self.game.fruitsCount = 0
-            self.game.attempts.append(self.game.currentSequence)
-            self.game.currentRound += 1
-            self.game.roundEnded = false
-            self.game.currentSequence = RoundSequence()
-            self.game.insertInReceipe = [false, false, false, false]
-            self.game.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
-            self.game.objectWillChange.send()
         }
+        self.game.fruitsCount = 0
+        self.game.attempts.append(self.game.currentSequence)
+        self.game.currentRound += 1
+        self.game.roundEnded = false
+        self.game.insertInReceipe = [false, false, false, false]
+        self.game.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
+        
+        if !self.game.checkWinner(){
+            self.game.currentSequence = RoundSequence()
+        }
+        
+        self.game.objectWillChange.send()
     }
     
     func buttonAction() {

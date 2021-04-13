@@ -40,21 +40,13 @@ public class RoundSequence {
             }
         }
         
-//        print("Imagens apos corrects: ", secretReceipeImages, "\n")
-        
         for index in 0..<4 {
-//            print("Imagens antes: ", secretReceipeImages)
-//            print("Buscando: ", self.fruits[index])
-            
             if !correctsIndex.contains(index) {
                 if let ind = secretReceipeImages.lastIndex(of: self.fruits[index]){
-//                    print("Encontrei no indice ", ind)
                     almosts += 1
                     secretReceipeImages[ind] = UIImage()
                 }
             }
-            
-//            print("Imagens depois: ", secretReceipeImages, "\n")
         }
         
         incorrects = 4 - corrects - almosts

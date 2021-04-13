@@ -89,7 +89,6 @@ public struct GameView: View {
                             }
                             .shadow(radius: thisFruitIsSelected(fruit: strawberryImage) ? 2.0 : 0)
                             .opacity(thisFruitIsSelected(fruit: strawberryImage) || !self.game.hasFruitSelected ? 1.0 : 0.75)
-
                         
                         Image(uiImage: orangeImage)
                             .resizable()
@@ -151,8 +150,11 @@ public struct GameView: View {
                                 .padding(.leading, 50)
                                 .offset(y: -70)
                             
-                            Text(self.game.fruitsCount == 4 ? "Turn on the blender to mix juice!" : "")
+                            Text(self.game.fruitsCount == 4 ? "Turn on the blender\nto see the result!" : "")
+                                .font(.custom("YgroSansBeta-Bold", size: 20))
+                                .multilineTextAlignment(.center)
                                 .offset(x: 20, y: 90)
+                                .shadow(radius: 2.0)
                             
                         }
                     }
@@ -167,19 +169,22 @@ public struct GameView: View {
                     .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     )
             
-//            VStack {
-//                Spacer()
-//                ConfigurationView(gameViewIsActive: $rootIsActive, showConfig: $showConfig, environment: environment, isPause: true)
-//                    .offset(y: self.showConfig ? 0 : UIScreen.main.bounds.height)
-//                    .padding(.bottom)
-//                    .padding(.bottom) // sao dois mesmo hehe
-//            }
-//            .background(VisualEffectView(effect: UIBlurEffect(style: .dark))
-//                            .edgesIgnoringSafeArea(.all)
-//                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                            .opacity((self.showConfig ? 1 : 0)))
-        .animation(.default)
-            
+            VStack {
+                EndGameView(game: self.game)
+                    .frame(width: 676, height: 580, alignment: .center)
+                    .opacity(withAnimation(Animation.linear(duration: 5.0)) {self.game.gameEnded ? 1 : 0})
+            }
+            .background(VisualEffectView(effect: UIBlurEffect(style: .dark))
+                            .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .opacity((self.game.gameEnded ? 1 : 0)))
         }
+        .animation(.default)
+
     }
+}
+
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
 }
