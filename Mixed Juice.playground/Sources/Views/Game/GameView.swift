@@ -150,7 +150,7 @@ public struct GameView: View {
                                 .padding(.leading, 50)
                                 .offset(y: -70)
                             
-                            Text(self.game.fruitsCount == 4 ? "Turn on the blender\nto see the result!" : "")
+                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click on blender\nbutton to reset receipe." : "Turn on the blender\nto see the result!") : "")
                                 .font(.custom("YgroSansBeta-Bold", size: 20))
                                 .multilineTextAlignment(.center)
                                 .offset(x: 20, y: 90)
