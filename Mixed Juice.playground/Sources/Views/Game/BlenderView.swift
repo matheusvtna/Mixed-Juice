@@ -87,7 +87,7 @@ struct BaseBlenderView: View {
         
         GeometryReader { geometry in
             ZStack{
-                Image(uiImage: baseBlenderCleanImage)
+                Image(uiImage: baseBlenderImage)
                     .resizable()
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 
@@ -227,7 +227,7 @@ struct SmallBaseBlenderView: View {
     
     var body: some View {
         ZStack {
-            Image(uiImage: baseBlenderCleanImage)
+            Image(uiImage: baseBlenderImage)
                 .resizable()
                 .frame(width: size, height: size, alignment: .center)
             

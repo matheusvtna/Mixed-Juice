@@ -172,7 +172,7 @@ public struct GameView: View {
             VStack {
                 EndGameView(game: self.game)
                     .frame(width: 676, height: 580, alignment: .center)
-                    .opacity(withAnimation(Animation.linear(duration: 5.0)) {self.game.gameEnded ? 1 : 0})
+                    .opacity(self.game.gameEnded ? 1 : 0)
             }
             .background(VisualEffectView(effect: UIBlurEffect(style: .dark))
                             .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

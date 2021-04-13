@@ -76,7 +76,7 @@ struct CardReceipeView: View {
                 }
             }
         }
-        .background(Image(uiImage: card).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+        .background(Image(uiImage: receipeCardImage).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
     }
     
 }

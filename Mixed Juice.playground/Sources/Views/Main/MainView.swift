@@ -2,10 +2,8 @@ import SwiftUI
 
 // Backgrounds
 var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
-var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
 var receipeCardImage = UIImage(imageLiteralResourceName: "ReceipeCard")
-var card = UIImage(imageLiteralResourceName: "Card")
 var popUpBackground = UIImage(imageLiteralResourceName: "PopUpBackground")
 
 // Booth and Shelf
@@ -17,7 +15,6 @@ var smallBoothCleanImage = UIImage(imageLiteralResourceName: "SmallBoothClean")
 
 // Blender
 var baseBlenderImage = UIImage(imageLiteralResourceName: "BaseBlender")
-var baseBlenderCleanImage = UIImage(imageLiteralResourceName: "BaseBlenderClean")
 var cupBlenderImage = UIImage(imageLiteralResourceName: "CupBlender")
 var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
 
@@ -40,6 +37,11 @@ var orangeCleanImage = UIImage(imageLiteralResourceName: "OrangeClean")
 var peachCleanImage = UIImage(imageLiteralResourceName: "PeachClean")
 var pearCleanImage = UIImage(imageLiteralResourceName: "PearClean")
 var strawberryCleanImage = UIImage(imageLiteralResourceName: "StrawberryClean")
+
+// Buttons
+var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
+var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
+var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
 
 public struct MainView: View {
     @EnvironmentObject var settings: UserSettings
