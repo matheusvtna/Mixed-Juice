@@ -65,7 +65,7 @@ class GameEnvironment: ObservableObject {
             recipe.append(self.ingredients.randomElement()!)
         }
         
-        print(recipe)
+        //print(recipe)
         return recipe
     }
     

@@ -4,6 +4,7 @@ import SwiftUI
 var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
 var recipeCardImage = UIImage(imageLiteralResourceName: "RecipeCard")
+var cardImage = UIImage(imageLiteralResourceName: "RecipeCardClean")
 var popUpBackgroundImage = UIImage(imageLiteralResourceName: "PopUpBackground")
 var boardBackgroundImage = UIImage(imageLiteralResourceName: "BoardBackground")
 
@@ -18,6 +19,7 @@ var smallBoothCleanImage = UIImage(imageLiteralResourceName: "SmallBoothClean")
 var baseBlenderImage = UIImage(imageLiteralResourceName: "BaseBlender")
 var cupBlenderImage = UIImage(imageLiteralResourceName: "CupBlender")
 var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
+var blenderOnboardingImage = UIImage(imageLiteralResourceName: "BlenderOnboarding")
 
 // Fruits with Shadow
 var appleImage = UIImage(imageLiteralResourceName: "Apple")
@@ -44,6 +46,8 @@ var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
 var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
 var unveilingButtonImage = UIImage(imageLiteralResourceName: "UnveilingRecipesButton")
+var nextButtonImage = UIImage(imageLiteralResourceName: "NextButton")
+var letsGoButtonImage = UIImage(imageLiteralResourceName: "LetsGoButton")
 
 // Chars
 var chefLeoImage = UIImage(imageLiteralResourceName: "ChefLeo")
@@ -52,14 +56,20 @@ public struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     
     public init() {}
-
+    
     public var body: some View {
         Group {
             if settings.page == 0 {
                 MenuView().environmentObject(settings)
             } else if settings.page == 1 {
-                ChefLeoView().environmentObject(settings)
+                OnboardingChefLeoView().environmentObject(settings)
             } else if settings.page == 2 {
+                OnboardingIngredientsView().environmentObject(settings)
+            } else if settings.page == 3 {
+                OnboardingRecipeView().environmentObject(settings)
+            } else if settings.page == 4 {
+                OnboardingBlenderView().environmentObject(settings)
+            } else if settings.page == 5 {
                 GameView().environmentObject(settings)
             }
         }

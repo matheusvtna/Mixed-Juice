@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct ChefLeoView: View {
+public struct OnboardingChefLeoView: View {
     @EnvironmentObject var settings: UserSettings
     
     public init() {}
@@ -58,7 +58,7 @@ public struct ChefLeoView: View {
                     Button(action: {
                         settings.page = 2
                     }, label: {
-                        Image(uiImage: unveilingButtonImage)
+                        Image(uiImage: letsGoButtonImage)
                             .resizable()
                             .frame(width: 215, height: 60, alignment: .center)
                             .shadow(radius: 2.0)

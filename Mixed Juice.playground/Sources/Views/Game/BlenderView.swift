@@ -171,7 +171,7 @@ struct ButtonBlenderView: View {
         } else {
             ZStack {
                 Rectangle()
-                    .fill(Color.lightGrey)
+                    .fill(Color.lightPurple)
                     .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(radius: 5.0)
                     .cornerRadius(10)
@@ -232,7 +232,7 @@ struct SmallBaseBlenderView: View {
                 .frame(width: size, height: size, alignment: .center)
             
             Rectangle()
-                .fill(Color.lightGrey)
+                .fill(Color.lightPurple)
                 .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(radius: 5.0)
                 .cornerRadius(2)
