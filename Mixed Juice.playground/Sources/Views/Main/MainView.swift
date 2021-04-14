@@ -47,7 +47,7 @@ var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
 var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
 var unveilingButtonImage = UIImage(imageLiteralResourceName: "UnveilingRecipesButton")
 var nextButtonImage = UIImage(imageLiteralResourceName: "NextButton")
-var letsGoButtonImage = UIImage(imageLiteralResourceName: "LetsGoButton")
+var goKitchenButtonImage = UIImage(imageLiteralResourceName: "GoKitchenButton")
 
 // Chars
 var chefLeoImage = UIImage(imageLiteralResourceName: "ChefLeo")

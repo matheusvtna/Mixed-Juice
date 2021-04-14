@@ -9,10 +9,11 @@ public struct OnboardingRecipeView: View {
         ZStack {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                Text("Let's Learn About my Kitchen!")
+                Text("How my Kitchen Works?")
                     .font(.custom("YgroSansBeta-Bold", size: 36))
                     .shadow(radius: 2.0)
                     .padding()
+                    .padding(.top)
                 
                 Spacer()
             }

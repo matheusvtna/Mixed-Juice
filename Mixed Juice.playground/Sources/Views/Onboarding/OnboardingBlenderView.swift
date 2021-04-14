@@ -9,10 +9,11 @@ public struct OnboardingBlenderView: View {
         ZStack {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                Text("Let's Learn About my Kitchen!")
+                Text("How my Kitchen Works?")
                     .font(.custom("YgroSansBeta-Bold", size: 36))
                     .shadow(radius: 2.0)
                     .padding()
+                    .padding(.top)
                 
                 Spacer()
             }
@@ -32,15 +33,17 @@ public struct OnboardingBlenderView: View {
                             
                             Text("To evaluate your every attempt, my\nmagic blender will help you.")
                                 .font(.custom("YgroSansBeta-Book", size: 20))
-                                .padding([.horizontal, .top])
+                                .padding(.horizontal)
+                                .padding(.top, -10)
                             
                             HStack {
                                 Image(uiImage: blenderOnboardingImage)
                                     .resizable()
-                                    .frame(width: 100, height: 205, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 90, height: 185, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .scaledToFill()
+                                    .padding(.trailing, 10)
                                                                 
-                                VStack {
+                                VStack(alignment: .leading){
                                     
                                     HStack {
                                         Circle()
@@ -48,7 +51,7 @@ public struct OnboardingBlenderView: View {
                                             .frame(width: 20, height: 20)
                                         
                                         Text("You hit a fruit in the\ncorrect position")
-                                            .font(.custom("YgroSansBeta-Medium", size: 18))
+                                            .font(.custom("YgroSansBeta-Medium", size: 16))
                                     }
                                     
                                     HStack {
@@ -57,7 +60,7 @@ public struct OnboardingBlenderView: View {
                                             .frame(width: 20, height: 20)
                                         
                                         Text("You hit a fruit, but in\nthe wrong position")
-                                            .font(.custom("YgroSansBeta-Medium", size: 18))
+                                            .font(.custom("YgroSansBeta-Medium", size: 16))
                                     }
                                     
                                     HStack {
@@ -66,14 +69,19 @@ public struct OnboardingBlenderView: View {
                                             .frame(width: 20, height: 20)
                                         
                                         Text("You missed a fruit, it\ndoesn't exists in the recipe")
-                                            .font(.custom("YgroSansBeta-Medium", size: 18))
+                                            .font(.custom("YgroSansBeta-Medium", size: 16))
                                     }
                                     
                                 }
                             }
-                            .padding(.vertical, 30)                            
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                            
+                            Text("Are you ready to unveil my recipes?")
+                                .font(.custom("YgroSansBeta-Medium", size: 21))
+                            
                         }
-                        .padding(.leading, 25)
+                        .padding(.leading, 20)
                         .padding(.bottom, 35)
                         .shadow(radius: 2.0)
                     }
@@ -107,7 +115,7 @@ public struct OnboardingBlenderView: View {
                     Button(action: {
                         settings.page = 5
                     }, label: {
-                        Image(uiImage: nextButtonImage)
+                        Image(uiImage: unveilingButtonImage)
                             .resizable()
                             .frame(width: 170, height: 45, alignment: .center)
                             .shadow(radius: 2.0)
