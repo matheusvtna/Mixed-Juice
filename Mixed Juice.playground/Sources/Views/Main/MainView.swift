@@ -43,6 +43,9 @@ var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
 var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
 
+// Chars
+var chefLeoImage = UIImage(imageLiteralResourceName: "ChefLeo")
+
 public struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     
@@ -53,6 +56,8 @@ public struct MainView: View {
             if settings.page == 0 {
                 MenuView().environmentObject(settings)
             } else if settings.page == 1 {
+                ChefLeoView().environmentObject(settings)
+            } else if settings.page == 2 {
                 GameView().environmentObject(settings)
             }
         }
