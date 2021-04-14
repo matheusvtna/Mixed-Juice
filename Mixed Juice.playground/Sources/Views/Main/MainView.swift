@@ -4,7 +4,8 @@ import SwiftUI
 var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
 var recipeCardImage = UIImage(imageLiteralResourceName: "RecipeCard")
-var popUpBackground = UIImage(imageLiteralResourceName: "PopUpBackground")
+var popUpBackgroundImage = UIImage(imageLiteralResourceName: "PopUpBackground")
+var boardBackgroundImage = UIImage(imageLiteralResourceName: "BoardBackground")
 
 // Booth and Shelf
 var bigShelfImage = UIImage(imageLiteralResourceName: "BigShelf")
@@ -42,6 +43,7 @@ var strawberryCleanImage = UIImage(imageLiteralResourceName: "StrawberryClean")
 var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
 var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
+var unveilingButtonImage = UIImage(imageLiteralResourceName: "UnveilingRecipesButton")
 
 // Chars
 var chefLeoImage = UIImage(imageLiteralResourceName: "ChefLeo")

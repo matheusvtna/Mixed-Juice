@@ -16,7 +16,7 @@ struct EndGameView: View {
             
             if self.game.gameEnded{
                 ZStack {
-                    Image(uiImage: popUpBackground)
+                    Image(uiImage: popUpBackgroundImage)
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     
@@ -24,11 +24,13 @@ struct EndGameView: View {
                         Text(self.win ? "Congratulations" : "Oh... you didn't make it.")
                             .font(.custom("YgroSansBeta-Bold", size: 36))
                             .padding(.all)
+                            .shadow(radius: 2.0)
                         
                         Text(self.win ? "You unveiled my secret recipe in \(self.game.currentRound) attempt\(self.game.currentRound > 1 ? "s" : "")!" : "You failed to unravel my recipe in 8 attempts.\nBut still, I will give the answer.")
                             .font(.custom("YgroSansBeta-Medium", size: 24))
                             .multilineTextAlignment(.center)
                             .padding([.horizontal, .bottom])
+                            .shadow(radius: 2.0)
                         
                         HStack {
                             Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretRecipe[0]))
@@ -60,6 +62,7 @@ struct EndGameView: View {
                         Text(self.win ? "Now you can say that you are becoming a master\nin the art of making juices. " :  "Write it down so you don't forget. Let's try another recipe?")
                             .font(.custom("YgroSansBeta-Book", size: 20))
                             .multilineTextAlignment(.center)
+                            .shadow(radius: 2.0)
                         
                         HStack {
                             Button(action: {
@@ -68,6 +71,7 @@ struct EndGameView: View {
                                 Image(uiImage: backMenuButtonImage)
                                     .resizable()
                                     .frame(width: 250, height: 67, alignment: .center)
+                                    .shadow(radius: 2.0)
                             })
                             
                             Button(action: {
@@ -76,6 +80,7 @@ struct EndGameView: View {
                                 Image(uiImage: tryAgainButtonImage)
                                     .resizable()
                                     .frame(width: 250, height: 67, alignment: .center)
+                                    .shadow(radius: 2.0)
                             })
                             
                         }.padding()
