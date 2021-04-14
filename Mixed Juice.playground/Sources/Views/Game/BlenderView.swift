@@ -123,8 +123,8 @@ struct BaseBlenderView: View {
         self.game.attempts.append(self.game.currentSequence)
         self.game.currentRound += 1
         self.game.roundEnded = false
-        self.game.insertInReceipe = [false, false, false, false]
-        self.game.imagesReceipe = [UIImage(), UIImage(), UIImage(), UIImage()]
+        self.game.insertInRecipe = [false, false, false, false]
+        self.game.imagesRecipe = [UIImage(), UIImage(), UIImage(), UIImage()]
         
         if !self.game.checkWinner(){
             self.game.currentSequence = RoundSequence()
@@ -143,7 +143,7 @@ struct BaseBlenderView: View {
             if !feedbackIsVisible {
                 mixJuice()
             }
-            self.game.currentSequence.defineHits(secretReceipe: self.game.secretReceipe)
+            self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
             self.feedbackIsVisible.toggle()
         }
     }

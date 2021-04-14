@@ -146,12 +146,12 @@ public struct GameView: View {
                             .padding(.trailing, 50)
                         
                         ZStack {
-                            CardReceipeView(game: self.game)
+                            CardRecipeView(game: self.game)
                                 .frame(width: 350, height: 230, alignment: .top)
                                 .padding(.leading, 50)
                                 .offset(y: -70)
                             
-                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click the blender\nbutton to reset receipe." : "Click the blender\nbutton to see the result!") : "")
+                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click the blender\nbutton to reset recipe." : "Click the blender\nbutton to see the result!") : "")
                                 .font(.custom("YgroSansBeta-Bold", size: 20))
                                 .multilineTextAlignment(.center)
                                 .offset(x: 20, y: 90)

@@ -3,7 +3,7 @@ import SwiftUI
 // Backgrounds
 var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
-var receipeCardImage = UIImage(imageLiteralResourceName: "ReceipeCard")
+var recipeCardImage = UIImage(imageLiteralResourceName: "RecipeCard")
 var popUpBackground = UIImage(imageLiteralResourceName: "PopUpBackground")
 
 // Booth and Shelf

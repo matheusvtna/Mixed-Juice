@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CardReceipeView: View {
+struct CardRecipeView: View {
     
     @ObservedObject var game: GameEnvironment
     
@@ -8,13 +8,13 @@ struct CardReceipeView: View {
         let fruitsCount = self.game.fruitsCount
         let fruitShadow = self.getFruitWithShadow(fruit: fruitCleaned)
 
-        if fruitsCount < 4 && !self.game.insertInReceipe[index] {
+        if fruitsCount < 4 && !self.game.insertInRecipe[index] {
             self.game.fruitsCount += 1
             self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
         }
         
         self.game.currentSequence.fruits[index] = fruitShadow
-        self.game.currentSequence.receipe[index] = fruitCleaned
+        self.game.currentSequence.recipe[index] = fruitCleaned
 
         self.game.objectWillChange.send()
     }
@@ -53,8 +53,8 @@ struct CardReceipeView: View {
                     Button(action: {
                         if self.game.hasFruitSelected && !self.game.roundEnded {
                             self.addFruit(fruitCleaned: self.game.selectedFruit, index: index)
-                            self.game.insertInReceipe[index] = true
-                            self.game.imagesReceipe[index] = self.game.selectedFruit
+                            self.game.insertInRecipe[index] = true
+                            self.game.imagesRecipe[index] = self.game.selectedFruit
                             self.game.objectWillChange.send()
                         }
                         
@@ -65,7 +65,7 @@ struct CardReceipeView: View {
                                 .border(Color.lightPurple, width: 2)
                                 .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             
-                            Image(uiImage: self.game.imagesReceipe[index])
+                            Image(uiImage: self.game.imagesRecipe[index])
                                 .resizable()
                                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         }
@@ -76,7 +76,7 @@ struct CardReceipeView: View {
                 }
             }
         }
-        .background(Image(uiImage: receipeCardImage).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+        .background(Image(uiImage: recipeCardImage).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
     }
     
 }

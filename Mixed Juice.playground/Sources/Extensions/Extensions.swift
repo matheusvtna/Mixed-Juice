@@ -4,7 +4,7 @@ import SwiftUI
 //    static var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
 //    static var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 //    static var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
-//    static var receipeCardImage = UIImage(imageLiteralResourceName: "ReceipeCard")
+//    static var recipeCardImage = UIImage(imageLiteralResourceName: "RecipeCard")
 //    static var card = UIImage(imageLiteralResourceName: "Card")
 //
 //    // Booth and Shelf

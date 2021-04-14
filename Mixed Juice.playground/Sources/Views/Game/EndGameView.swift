@@ -25,31 +25,31 @@ struct EndGameView: View {
                             .font(.custom("YgroSansBeta-Bold", size: 36))
                             .padding(.all)
                         
-                        Text(self.win ? "You unveiled my secret recipe in \(self.game.currentRound) attempt\(self.game.currentRound > 1 ? "s" : "")!" : "You failed to unravel my receipe in 8 attempts.\nBut still, I will give the answer.")
+                        Text(self.win ? "You unveiled my secret recipe in \(self.game.currentRound) attempt\(self.game.currentRound > 1 ? "s" : "")!" : "You failed to unravel my recipe in 8 attempts.\nBut still, I will give the answer.")
                             .font(.custom("YgroSansBeta-Medium", size: 24))
                             .multilineTextAlignment(.center)
                             .padding([.horizontal, .bottom])
                         
                         HStack {
-                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretReceipe[0]))
+                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretRecipe[0]))
                                 .resizable()
                                 .frame(width: 90, height: 90, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .scaledToFill()
                                 .padding()
                             
-                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretReceipe[1]))
+                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretRecipe[1]))
                                 .resizable()
                                 .frame(width: 90, height: 90, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .scaledToFill()
                                 .padding()
                             
-                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretReceipe[2]))
+                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretRecipe[2]))
                                 .resizable()
                                 .frame(width: 90, height: 90, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .scaledToFill()
                                 .padding()
                             
-                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretReceipe[3]))
+                            Image(uiImage: UIImage(imageLiteralResourceName: self.game.secretRecipe[3]))
                                 .resizable()
                                 .frame(width: 90, height: 90, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .scaledToFill()
@@ -57,7 +57,7 @@ struct EndGameView: View {
                         }
                         .padding()
                         
-                        Text(self.win ? "Now you can say that you are becoming a master\nin the art of making juices. " :  "Write it down so you don't forget. Let's try another receipe?")
+                        Text(self.win ? "Now you can say that you are becoming a master\nin the art of making juices. " :  "Write it down so you don't forget. Let's try another recipe?")
                             .font(.custom("YgroSansBeta-Book", size: 20))
                             .multilineTextAlignment(.center)
                         
