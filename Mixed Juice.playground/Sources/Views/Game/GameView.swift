@@ -4,6 +4,7 @@ public struct GameView: View {
     
     @EnvironmentObject var settings: UserSettings
     @ObservedObject var game = GameEnvironment()
+    @State var visible: Bool = false
     
     public init() {}
     
@@ -150,12 +151,15 @@ public struct GameView: View {
                                 .padding(.leading, 50)
                                 .offset(y: -70)
                             
-                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click on blender\nbutton to reset receipe." : "Turn on the blender\nto see the result!") : "")
+                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click the blender\nbutton to reset receipe." : "Click the blender\nbutton to see the result!") : "")
                                 .font(.custom("YgroSansBeta-Bold", size: 20))
                                 .multilineTextAlignment(.center)
                                 .offset(x: 20, y: 90)
                                 .shadow(radius: 2.0)
-                            
+                                .opacity(visible ? 1 : 0.5)
+                                .scaleEffect(visible ? 1 : 0.9)
+                                .onAppear(perform: pulsateText)
+                                .offset(y: 5)
                         }
                     }
                     .offset(y: -170)
@@ -178,8 +182,14 @@ public struct GameView: View {
                             .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .opacity((self.game.gameEnded ? 1 : 0)))
         }
-        .animation(.default)
+        //.animation(.default)
 
+    }
+    
+    private func pulsateText() {
+        withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+            self.visible.toggle()
+        }
     }
 }
 

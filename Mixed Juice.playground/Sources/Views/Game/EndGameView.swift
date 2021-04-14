@@ -25,7 +25,7 @@ struct EndGameView: View {
                             .font(.custom("YgroSansBeta-Bold", size: 36))
                             .padding(.all)
                         
-                        Text(self.win ? "You unveiled my secret recipe in \(self.game.currentRound) attempt \(self.game.currentRound > 1 ? "s" : "")!" : "You failed to unravel my receipe in 8 attempts.\nBut still, I will give the answer.")
+                        Text(self.win ? "You unveiled my secret recipe in \(self.game.currentRound) attempt\(self.game.currentRound > 1 ? "s" : "")!" : "You failed to unravel my receipe in 8 attempts.\nBut still, I will give the answer.")
                             .font(.custom("YgroSansBeta-Medium", size: 24))
                             .multilineTextAlignment(.center)
                             .padding([.horizontal, .bottom])
