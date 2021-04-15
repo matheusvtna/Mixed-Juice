@@ -14,16 +14,23 @@
 
  So, in case you get 4 green answers: Congratulations! You have discovered a secret recipe. However, if you are unable to unveil the recipe in 8 attempts ... unfortunately you will start to find Chef Leo really selfish.
  
+ 
  ## Who am I?
  
  ![Playground icon](MatheusVinicius.jpg)
  
-Hi! My name is Matheus Andrade and I am 21 years old. I am a undergraduate student in computer engineering, a researcher of ​​the robotics group RobôCIn and a student at the Apple Developer Academy, at the UFPE Computer Center, Recife - Brazil. At the moment, I have contact with robotic, software developement, design and iOS Development at the university. But before that I never had knowledge about programming or something more technical about techonology. And, being more specific, before I joined at the Academy, I never had contact with Swift or any Apple's technology.
-Because of this, the "Mixed Juice" is my third playground made since I joined the Apple Developer Academy in 2020: the first was a "Esportelites", a quiz game built during a Challenge on Academy; the second, "The Blind Maze", is my first and accepted submission for Swift Student Challenge in 2020; and the third, "Mixed Juice", this playground.
-The last playgrounds were made using UIKit and Spritekit, but this one I did different. My idea of using pure SwiftUI on this playground came from the Apple Developer Academy, because in the past few months, we were encouraged to build an app using SwiftUI and, at the end of Challenge, I felt that there was much more to learn and experiment with. Therefore, the Swift Student Challenge came as the perfect time to study these things and learn a lot about them.
-And, of course, my love of games influenced my project to be a game. I BUILD MY FIRST GAME IN SCRATCH SWIFTUI! I LOVED!
+ Hi! My name is Matheus Andrade and I am 21 years old. I am a undergraduate student in computer engineering, a researcher of ​​the robotics group RobôCIn and a student at the Apple Developer Academy, at the UFPE Computer Center, Recife - Brazil. At the moment, I have contact with robotic, software developement, design and iOS Development at the university. But before that I never had knowledge about programming or something more technical about techonology. And, being more specific, before I joined at the Academy, I never had contact with Swift or any Apple's technology.
+ Because of this, the "Mixed Juice" is my third playground made since I joined the Apple Developer Academy in 2020: the first was a "Esportelites", a quiz game built during a Challenge on Academy; the second, "The Blind Maze", is my first and accepted submission for Swift Student Challenge in 2020; and the third, "Mixed Juice", this playground.
+ The last playgrounds were made using UIKit and Spritekit, but this one I did different. My idea of using pure SwiftUI on this playground came from the Apple Developer Academy, because in the past few months, we were encouraged to build an app using SwiftUI and, at the end of Challenge, I felt that there was much more to learn and experiment with. Therefore, the Swift Student Challenge came as the perfect time to study these things and learn a lot about them.
+ And, of course, my love of games influenced my project to be a game.
+ I BUILD MY FIRST GAME IN SCRATCH SWIFTUI! I LOVED!
  
-
+ 
+## Credits
+ The design of the stage was done largely by myself. However, some features are made from edits of files already created by third parties. In this way, I will give due credit to the authors of the resources used and I will also leave a big thanks to you who helped me to build my application. Thank you,
+ - Glass of Juice: [Designed by Vextok / Freepik](https://br.freepik.com/vetores-gratis/limonada-de-limao-e-limao-ilustracao-verde-de-limonada_3332302.htm#page=1&query=suco&position=0)
+ - Fruits: [Designed by Photoroyalty / Freepik](https://br.freepik.com/vetores-gratis/coleta-de-frutas-icones_1041748.htm#page=1&query=fruit&position=18)
+- Booth: [Designed by macrovector / Freepik](https://br.freepik.com/vetores-gratis/prateleiras-de-supermercado-realistas_3796463.htm#page=1&query=prateleira&position=22)
  
 */
 
