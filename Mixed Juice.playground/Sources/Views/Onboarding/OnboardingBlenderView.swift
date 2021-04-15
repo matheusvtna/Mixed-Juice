@@ -87,11 +87,13 @@ public struct OnboardingBlenderView: View {
                             }
                             .padding(.top, 8)
                             .padding(.bottom, 15)
+                            .offset(x: 8)
                             
                             Text("Are you ready to unveil my recipes?")
                                 .font(.custom("YgroSansBeta-Medium", size: 18))
                             
                         }
+                        .offset(x: -10)
                         .padding(.leading, 20)
                         .padding(.bottom, 35)
                         .shadow(radius: 2.0)

@@ -5,6 +5,7 @@ public struct GameView: View {
     @EnvironmentObject var settings: UserSettings
     @ObservedObject var game = GameEnvironment()
     @State var visible: Bool = false
+    @State var showHelpPopUp: Bool = false
     
     public init() {}
     
@@ -174,6 +175,36 @@ public struct GameView: View {
                     .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     )
             
+            VStack(alignment: .trailing) {
+                
+                HStack {
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.showHelpPopUp.toggle()
+                    }, label: {
+                        Image(uiImage: helpButtonImage)
+                            .resizable()
+                            .frame(width: 50, height: 50, alignment: .center)
+                    })
+                    .padding()
+                }
+                .padding()
+                
+                Spacer()
+                
+            }
+            
+            VStack {
+                HelpView(popUpActive: self.$showHelpPopUp)
+                    .frame(width: 676, height: 820, alignment: .center)
+                    .opacity(self.showHelpPopUp ? 1 : 0)
+            }
+            .background(VisualEffectView(effect: UIBlurEffect(style: .dark))
+                            .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .opacity((self.showHelpPopUp ? 1 : 0)))
+            
             VStack {
                 EndGameView(game: self.game)
                     .frame(width: 676, height: 580, alignment: .center)
@@ -182,8 +213,8 @@ public struct GameView: View {
             .background(VisualEffectView(effect: UIBlurEffect(style: .dark))
                             .frame(width: 770, height: UIScreen.main.bounds.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .opacity((self.game.gameEnded ? 1 : 0)))
+
         }
-        //.animation(.default)
 
     }
     

@@ -39,6 +39,7 @@ public struct OnboardingRecipeView: View {
                             Image(uiImage: cardImage)
                                 .resizable()
                                 .frame(width: 220, height: 144, alignment: .center)
+                                .scaledToFill()
                                 .padding(.horizontal)
                                 .padding(.vertical, 8)
 
