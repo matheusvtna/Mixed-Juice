@@ -117,7 +117,7 @@ public struct OnboardingBlenderView: View {
                     Button(action: {
                         settings.page = 5
                     }, label: {
-                        Image(uiImage: unveilingButtonImage)
+                        Image(uiImage: yesButtonImage)
                             .resizable()
                             .frame(width: 170, height: 45, alignment: .center)
                             .shadow(radius: 2.0)

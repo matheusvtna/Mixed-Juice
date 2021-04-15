@@ -45,7 +45,7 @@ var strawberryCleanImage = UIImage(imageLiteralResourceName: "StrawberryClean")
 var startButtonImage = UIImage(imageLiteralResourceName: "StartButton")
 var backMenuButtonImage = UIImage(imageLiteralResourceName: "BackMenuButton")
 var tryAgainButtonImage = UIImage(imageLiteralResourceName: "TryAgainButton")
-var unveilingButtonImage = UIImage(imageLiteralResourceName: "UnveilingRecipesButton")
+var yesButtonImage = UIImage(imageLiteralResourceName: "YesButton")
 var nextButtonImage = UIImage(imageLiteralResourceName: "NextButton")
 var goKitchenButtonImage = UIImage(imageLiteralResourceName: "GoKitchenButton")
 
