@@ -132,6 +132,7 @@ public struct GameView: View {
                     }
                     .offset(y: -47)
                 }
+                .animation(Animation.easeInOut)
                 .padding(-100)
                 
                 //// Blender and Booth

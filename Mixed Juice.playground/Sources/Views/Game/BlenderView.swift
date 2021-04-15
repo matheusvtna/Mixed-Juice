@@ -166,6 +166,8 @@ struct ButtonBlenderView: View {
                     .shadow(radius: 2.0)
                 
             }
+            .animation(Animation.easeInOut)
+
         } else {
             ZStack {
                 Rectangle()
