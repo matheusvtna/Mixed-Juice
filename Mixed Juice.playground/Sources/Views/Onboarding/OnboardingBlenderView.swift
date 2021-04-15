@@ -28,7 +28,7 @@ public struct OnboardingBlenderView: View {
                     ZStack {
                         Image(uiImage: boardBackgroundImage)
                             .resizable()
-                            .frame(width: 460, height: 470, alignment: .center)
+                            .frame(width: 460, height: 500, alignment: .center)
                         
                         VStack {
                             
@@ -36,6 +36,7 @@ public struct OnboardingBlenderView: View {
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding(.horizontal)
                                 .padding(.top, -15)
+                                .offset(y: -12)
                             
                             HStack {
                                 Image(uiImage: blenderOnboardingImage)
@@ -91,6 +92,7 @@ public struct OnboardingBlenderView: View {
                             
                             Text("Are you ready to unveil my recipes?")
                                 .font(.custom("YgroSansBeta-Medium", size: 18))
+                                .offset(y: 3)
                             
                         }
                         .offset(x: -10)
@@ -136,7 +138,7 @@ public struct OnboardingBlenderView: View {
                     })
                     .padding(.trailing, 90)
                 }
-                .offset(y: 65)
+                .offset(y: 80)
 
             }
             

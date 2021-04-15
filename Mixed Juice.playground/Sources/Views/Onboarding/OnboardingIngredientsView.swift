@@ -28,7 +28,7 @@ public struct OnboardingIngredientsView: View {
                     ZStack {
                         Image(uiImage: boardBackgroundImage)
                             .resizable()
-                            .frame(width: 460, height: 470, alignment: .center)
+                            .frame(width: 460, height: 500, alignment: .center)
                         
                         VStack {
                             
@@ -36,34 +36,37 @@ public struct OnboardingIngredientsView: View {
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding([.horizontal, .top])
                             
-                            HStack {
-                                Image(uiImage: strawberryImage)
-                                    .resizable()
-                                    .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .scaledToFill()
+                            VStack {
+                                HStack {
+                                    Image(uiImage: strawberryImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .scaledToFill()
+                                    
+                                    Image(uiImage: orangeImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70, alignment: .center)
+                                        .scaledToFill()
+                                }
                                 
-                                Image(uiImage: orangeImage)
-                                    .resizable()
-                                    .frame(width: 70, height: 70, alignment: .center)
-                                    .scaledToFill()
-                                
-                                Image(uiImage: avocadoImage)
-                                    .resizable()
-                                    .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .scaledToFill()
-                                
-                                Image(uiImage: peachImage)
-                                    .resizable()
-                                    .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .scaledToFill()
+                                HStack {
+                                    Image(uiImage: avocadoImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .scaledToFill()
+                                    
+                                    Image(uiImage: peachImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .scaledToFill()
+                                }                        
                             }
                             .padding(.horizontal)
-                            .padding(.vertical, 30)
                             .offset(y: 30)
                             
                             Text("But be careful: the order of the\nfruits matters and interferes with\nthe result.")
                                 .font(.custom("YgroSansBeta-Medium", size: 18))
-                                .offset(y: 30)
+                                .offset(y: 40)
                         }
                         .padding(.bottom, 100)
                         .shadow(radius: 2.0)
@@ -106,7 +109,7 @@ public struct OnboardingIngredientsView: View {
                     })
                     .padding(.trailing, 90)                    
                 }
-                .offset(y: 65)
+                .offset(y: 80)
 
             }
             
