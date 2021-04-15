@@ -151,7 +151,7 @@ public struct GameView: View {
                                 .padding(.leading, 50)
                                 .offset(y: -70)
                             
-                            Text(self.game.fruitsCount == 4 ? (self.game.roundEnded ? "Click the blender\nbutton to reset recipe." : "Click the blender\nbutton to see the result!") : "")
+                            Text(self.getMessage())
                                 .font(.custom("YgroSansBeta-Bold", size: 20))
                                 .multilineTextAlignment(.center)
                                 .offset(x: 20, y: 90)
@@ -190,6 +190,23 @@ public struct GameView: View {
         withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
             self.visible.toggle()
         }
+    }
+    
+    private func getMessage() -> String {
+        var str: String = ""
+        
+        if self.game.fruitsCount == 4 {
+            if self.game.checkWinner() || self.game.checkLoser() {
+                str = "Click the blender\nbutton to talk with Chef Leo."
+            } else if self.game.roundEnded {
+                str = "Click the blender\nbutton to reset recipe."
+            } else {
+                str = "Click the blender\nbutton to see the result!"
+            }
+        }
+        
+        return str
+        
     }
 }
 

@@ -2,7 +2,7 @@
  
  # Mixed Juice
  
- ## How does it works?
+ ## How does it work?
  Hello! Today and here you will find Chef Leo: the best juice maker in Brazil and the world. He is known for having super secret recipes for absurdly delicious juices. However, he is also known to be a little ... "selfish". They say that he does not reveal his recipes to anyone. But this is not quite true, because here at Mixed Juice you will have a special meeting with Chef Leo.
  In Chef Leo's kitchen within Mixed Juice, you will have to unveil his recipes in a maximum of 8 attempts. But do not despair, at each attempt you will receive an indication stating how well you did with the created recipe. Therefore, in the Mixed Juice you will have 4 different fruits available to use in your recipe, but not every recipe uses all of them. And be careful: the order of the fruits matters and interferes with the result.
  With each attempt, Chef Leo's blender will tell you how close your recipe is to the chef's secret recipe. Possible responses to this indication are:

@@ -96,7 +96,7 @@ struct BaseBlenderView: View {
                 }, label: {
                     ButtonBlenderView(game: game, feedbackIsVisible: feedbackIsVisible, size: geometry.size.width)
                 })
-
+                
             }
         }
         
@@ -114,7 +114,7 @@ struct BaseBlenderView: View {
             self.game.mix.toggle()
         }
     }
-
+    
     private func clearBlender() {
         withAnimation(Animation.linear(duration: 2.0)){
             self.game.fluidLevel = self.game.initialFluidLevel
@@ -134,16 +134,14 @@ struct BaseBlenderView: View {
     }
     
     func buttonAction() {
-        if feedbackIsVisible {
-            self.feedbackIsVisible.toggle()
-            clearBlender()
-        }
         
         if self.game.fruitsCount == 4 {
             if !feedbackIsVisible {
                 mixJuice()
-            }
-            self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
+                self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
+            } else {
+                clearBlender()
+            }            
             self.feedbackIsVisible.toggle()
         }
     }
@@ -161,12 +159,12 @@ struct ButtonBlenderView: View {
                     .fill(Color.white)
                     .frame(width: size/2.5, height: size/2.5)
                     .shadow(radius: 5.0)
-
+                
                 Circle()
                     .fill(Color.lightGrey)
                     .frame(width: size/3.5, height: size/3.5)
                     .shadow(radius: 2.0)
-
+                
             }
         } else {
             ZStack {
@@ -175,7 +173,7 @@ struct ButtonBlenderView: View {
                     .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .shadow(radius: 5.0)
                     .cornerRadius(10)
-
+                
                 VStack {
                     HStack {
                         Circle()
@@ -187,20 +185,20 @@ struct ButtonBlenderView: View {
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[1]))
                             .frame(width: size/10, height: size/10)
                             .shadow(radius: 2.0)
-
+                        
                     }
-
+                    
                     HStack {
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[2]))
                             .frame(width: size/10, height: size/10)
                             .shadow(radius: 2.0)
-
+                        
                         Circle()
                             .fill(getColorFromHit(hit: self.game.currentSequence.getHits()[3]))
                             .frame(width: size/10, height: size/10)
                             .shadow(radius: 2.0)
-
+                        
                     }
                 }
                 .padding(.vertical)
@@ -236,7 +234,7 @@ struct SmallBaseBlenderView: View {
                 .frame(width: size/2.5, height: size/2.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .shadow(radius: 5.0)
                 .cornerRadius(2)
-
+            
             VStack {
                 HStack {
                     Circle()
@@ -250,18 +248,18 @@ struct SmallBaseBlenderView: View {
                         .offset(x: -2, y: 1)
                     
                 }
-
+                
                 HStack {
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[2]))
                         .frame(width: size/10, height: size/10)
                         .offset(x: 2, y: -1)
-
+                    
                     Circle()
                         .fill(self.getColorFromHit(hit: hits[3]))
                         .frame(width: size/10, height: size/10)
                         .offset(x: -2, y: -1)
-
+                    
                 }
             }
             .padding(.all)
