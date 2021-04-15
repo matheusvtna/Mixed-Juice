@@ -20,7 +20,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    if self.game.currentRound >= 7 {
+                    if self.game.attempts.count >= 7 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[6])
                     }
                 }
@@ -32,7 +32,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    if self.game.currentRound >= 8 {
+                    if self.game.attempts.count >= 8 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[7])
                     }
                 }
@@ -47,7 +47,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    if self.game.currentRound >= 5 {
+                    if self.game.attempts.count >= 5 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[4])
                     }
                 }
@@ -59,7 +59,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    if self.game.currentRound >= 6 {
+                    if self.game.attempts.count >= 6 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[5])
                     }
                 }
@@ -74,7 +74,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: 5)
                     
-                    if self.game.currentRound >= 3 {
+                    if self.game.attempts.count >= 3 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[2])
                     }
                     
@@ -87,7 +87,7 @@ struct BoothView: View {
                         .frame(width: 390, height: 115)
                         .offset(x: -5)
                     
-                    if self.game.currentRound >= 4 {
+                    if self.game.attempts.count >= 4 {
                         HistoryRoundView(game: game, attempt: self.game.attempts[3])
                     }
                 }
@@ -103,7 +103,7 @@ struct BoothView: View {
                             .frame(width: 390, height: 115)
                             .offset(x: 5)
                         
-                        if self.game.currentRound >= 1 {
+                        if self.game.attempts.count >= 1 {
                             HistoryRoundView(game: game, attempt: self.game.attempts[0])
                         }
                     }
@@ -115,7 +115,7 @@ struct BoothView: View {
                             .frame(width: 390, height: 115)
                             .offset(x: -5)
                         
-                        if self.game.currentRound >= 2 {
+                        if self.game.attempts.count >= 2 {
                             HistoryRoundView(game: game, attempt: self.game.attempts[1])
                         }
                     }
@@ -129,6 +129,7 @@ struct BoothView: View {
                 
             }
         }
+        .animation(.default)
         
     }
 }

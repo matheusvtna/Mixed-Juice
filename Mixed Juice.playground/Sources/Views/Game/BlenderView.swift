@@ -109,9 +109,11 @@ struct BaseBlenderView: View {
         self.game.hasFruitSelected = false
         self.game.selectedFruit = UIImage()
         self.game.roundEnded = true
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.game.attempts.append(self.game.currentSequence)
             self.game.mix.toggle()
+            self.feedbackIsVisible.toggle()
         }
     }
     
@@ -120,7 +122,6 @@ struct BaseBlenderView: View {
             self.game.fluidLevel = self.game.initialFluidLevel
         }
         self.game.fruitsCount = 0
-        self.game.attempts.append(self.game.currentSequence)
         self.game.currentRound += 1
         self.game.roundEnded = false
         self.game.insertInRecipe = [false, false, false, false]
@@ -130,11 +131,11 @@ struct BaseBlenderView: View {
             self.game.currentSequence = RoundSequence()
         }
         
+        self.feedbackIsVisible.toggle()
         self.game.objectWillChange.send()
     }
     
     func buttonAction() {
-        
         if self.game.fruitsCount == 4 {
             if !feedbackIsVisible {
                 mixJuice()
@@ -142,7 +143,6 @@ struct BaseBlenderView: View {
             } else {
                 clearBlender()
             }            
-            self.feedbackIsVisible.toggle()
         }
     }
 }
@@ -203,6 +203,7 @@ struct ButtonBlenderView: View {
                 }
                 .padding(.vertical)
             }
+            .animation(Animation.easeInOut)
         }
     }
     
