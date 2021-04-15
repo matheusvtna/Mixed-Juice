@@ -118,6 +118,7 @@ struct HelpView: View {
                         .offset(y: 20)
                         
                     }
+                    .shadow(radius: 2.0)
                 
                     
                     Button(action: {
