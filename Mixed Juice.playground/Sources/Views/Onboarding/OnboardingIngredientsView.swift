@@ -9,7 +9,7 @@ public struct OnboardingIngredientsView: View {
         ZStack {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                Text("How my Kitchen Works?")
+                Text("How Does my Kitchen Work?")
                     .font(.custom("YgroSansBeta-Bold", size: 36))
                     .shadow(radius: 2.0)
                     .padding()
@@ -59,7 +59,7 @@ public struct OnboardingIngredientsView: View {
                             .padding(.horizontal)
                             .padding(.vertical, 30)
                             
-                            Text("But, be careful: the order of the\nfruits matters and interferes with\nthe result.")
+                            Text("But be careful: the order of the\nfruits matters and interferes with\nthe result.")
                                 .font(.custom("YgroSansBeta-Medium", size: 21))
                         }
                         .padding(.bottom, 100)

@@ -59,7 +59,7 @@ struct EndGameView: View {
                         }
                         .padding()
                         
-                        Text(self.win ? "Now you can say that you are becoming a master\nin the art of making juices. " :  "Write it down so you don't forget. Let's try another recipe?")
+                        Text(self.win ? "Now you can say that you are becoming a\n master juice maker!" :  "Write it down so you don't forget.\nLet's try another recipe?")
                             .font(.custom("YgroSansBeta-Book", size: 20))
                             .multilineTextAlignment(.center)
                             .shadow(radius: 2.0)

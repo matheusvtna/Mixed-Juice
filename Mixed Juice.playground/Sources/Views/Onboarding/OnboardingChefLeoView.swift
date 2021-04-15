@@ -21,7 +21,7 @@ public struct OnboardingChefLeoView: View {
                                 .font(.custom("YgroSansBeta-Bold", size: 22))
                                 .padding([.horizontal, .top])
                             
-                            Text("I don't know if you know, but I'm the\nbiggest juice maker in Brazil and the\nworld. And, as a good juice maker, I\nhave several secret recipes that, as\nthe name says, I never revealed to\nanyone. But that does not mean that I\nam selfish... No. I just reveal my secret\nrecipes to those who are able to unveil\nthem in a maximum of 8 attempts.\nWait, wait, wait...")
+                            Text("I don't know if you know, but I'm the\nbest juice maker in Brazil and the\nworld. And, as the best juice maker, I\nhave several secret recipes that, as\nthe name says, I never revealed to\nanyone. But that does not mean that I\nam selfish... No. I just reveal my secret\nrecipes to those who are able to unveil\nthem in a maximum of 8 attempts.\nWait, wait, wait...")
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding()
                             

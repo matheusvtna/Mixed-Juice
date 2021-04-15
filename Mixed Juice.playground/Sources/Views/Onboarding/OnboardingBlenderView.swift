@@ -9,7 +9,7 @@ public struct OnboardingBlenderView: View {
         ZStack {
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                Text("How my Kitchen Works?")
+                Text("How Does my Kitchen Work?")
                     .font(.custom("YgroSansBeta-Bold", size: 36))
                     .shadow(radius: 2.0)
                     .padding()
@@ -68,7 +68,7 @@ public struct OnboardingBlenderView: View {
                                             .fill(Color.red)
                                             .frame(width: 20, height: 20)
                                         
-                                        Text("You missed a fruit, it\ndoesn't exists in the recipe")
+                                        Text("You missed a fruit, it\ndoesn't exist in the recipe")
                                             .font(.custom("YgroSansBeta-Medium", size: 16))
                                     }
                                     
