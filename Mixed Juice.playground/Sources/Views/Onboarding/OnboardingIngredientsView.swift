@@ -61,7 +61,7 @@ public struct OnboardingIngredientsView: View {
                             .padding(.vertical, 30)
                             
                             Text("But be careful: the order of the\nfruits matters and interferes with\nthe result.")
-                                .font(.custom("YgroSansBeta-Medium", size: 21))
+                                .font(.custom("YgroSansBeta-Medium", size: 18))
                         }
                         .padding(.bottom, 100)
                         .shadow(radius: 2.0)

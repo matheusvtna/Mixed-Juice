@@ -35,12 +35,12 @@ public struct OnboardingBlenderView: View {
                             Text("To evaluate your every attempt, my\nmagic blender will help you.")
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding(.horizontal)
-                                .padding(.top, -10)
+                                .padding(.top, -15)
                             
                             HStack {
                                 Image(uiImage: blenderOnboardingImage)
                                     .resizable()
-                                    .frame(width: 90, height: 185, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 80, height: 165, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     .scaledToFill()
                                     .padding(.trailing, 10)
                                                                 
@@ -49,37 +49,47 @@ public struct OnboardingBlenderView: View {
                                     HStack {
                                         Circle()
                                             .fill(Color.green)
-                                            .frame(width: 20, height: 20)
+                                            .frame(width: 15, height: 15)
                                         
                                         Text("You hit a fruit in the\ncorrect position")
-                                            .font(.custom("YgroSansBeta-Medium", size: 16))
+                                            .font(.custom("YgroSansBeta-Book", size: 16))
                                     }
                                     
                                     HStack {
                                         Circle()
                                             .fill(Color.yellow)
-                                            .frame(width: 20, height: 20)
+                                            .frame(width: 15, height: 15)
                                         
                                         Text("You hit a fruit, but in\nthe wrong position")
-                                            .font(.custom("YgroSansBeta-Medium", size: 16))
+                                            .font(.custom("YgroSansBeta-Book", size: 16))
                                     }
                                     
                                     HStack {
                                         Circle()
                                             .fill(Color.red)
-                                            .frame(width: 20, height: 20)
+                                            .frame(width: 15, height: 15)
                                         
                                         Text("You missed a fruit, it\ndoesn't exist in the recipe")
+                                            .font(.custom("YgroSansBeta-Book", size: 16))
+                                    }
+                                    
+                                    HStack {
+                                        Circle()
+                                            .fill(Color.clear)
+                                            .frame(width: 15, height: 15)
+                                        
+                                        Text("It doesn't say which was\nthe right or the wrong fruit.")
                                             .font(.custom("YgroSansBeta-Medium", size: 16))
+                                            .offset(x: -15)
                                     }
                                     
                                 }
                             }
-                            .padding(.top, 20)
-                            .padding(.bottom, 10)
+                            .padding(.top, 8)
+                            .padding(.bottom, 15)
                             
                             Text("Are you ready to unveil my recipes?")
-                                .font(.custom("YgroSansBeta-Medium", size: 21))
+                                .font(.custom("YgroSansBeta-Medium", size: 18))
                             
                         }
                         .padding(.leading, 20)

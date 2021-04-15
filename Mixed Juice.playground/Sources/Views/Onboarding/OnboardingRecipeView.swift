@@ -32,16 +32,21 @@ public struct OnboardingRecipeView: View {
                         
                         VStack {
                             
-                            Text("To create a recipe, you need to click\non a fruit and then click on the desired\nposition on this recipe card:")
+                            Text("To create a recipe, you need to click\non a fruit and then click on the desired\npositions on this recipe card:")
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding([.horizontal, .top])
                             
                             Image(uiImage: cardImage)
                                 .resizable()
-                                .frame(width: 275, height: 180, alignment: .center)
+                                .frame(width: 220, height: 144, alignment: .center)
                                 .padding(.horizontal)
-                                .padding(.vertical, 30)
+                                .padding(.vertical, 8)
 
+                            Text("When a fruit is selected, you can choose\nany positions that you want before\ntesting your recipe.")
+                                .font(.custom("YgroSansBeta-Medium", size: 18))
+                                .padding(.horizontal)
+                                .offset(y: -5)
+                            
                         }
                         .offset(y: -20)
                         .shadow(radius: 2.0)
