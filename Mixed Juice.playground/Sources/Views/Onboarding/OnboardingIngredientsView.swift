@@ -14,6 +14,7 @@ public struct OnboardingIngredientsView: View {
                     .shadow(radius: 2.0)
                     .padding()
                     .padding(.top)
+                    .offset(y: 50)
                 
                 Spacer()
             }
@@ -68,6 +69,7 @@ public struct OnboardingIngredientsView: View {
                     .padding(.top, 100)
                     .padding([.horizontal, .bottom], 60)
                 }
+                .offset(y: 62)
                 
                 Spacer()
                 
@@ -102,6 +104,8 @@ public struct OnboardingIngredientsView: View {
                     })
                     .padding(.trailing, 90)                    
                 }
+                .offset(y: 65)
+
             }
             
         }

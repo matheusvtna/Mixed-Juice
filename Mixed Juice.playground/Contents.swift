@@ -33,8 +33,6 @@
 - Booth: [Designed by macrovector / Freepik](https://br.freepik.com/vetores-gratis/prateleiras-de-supermercado-realistas_3796463.htm#page=1&query=prateleira&position=22)
  
 */
-
-
 import PlaygroundSupport
 import SwiftUI
 
