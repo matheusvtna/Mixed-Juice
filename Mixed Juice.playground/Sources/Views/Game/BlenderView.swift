@@ -81,7 +81,6 @@ struct CupBlenderView: View {
 
 struct BaseBlenderView: View {
     @ObservedObject var game: GameEnvironment
-    @State var feedbackIsVisible: Bool = false
     
     var body: some View {
         
@@ -94,7 +93,7 @@ struct BaseBlenderView: View {
                 Button(action: {
                     buttonAction()
                 }, label: {
-                    ButtonBlenderView(game: game, feedbackIsVisible: feedbackIsVisible, size: geometry.size.width)
+                    ButtonBlenderView(game: game, size: geometry.size.width)
                 })
                 
             }
@@ -111,9 +110,9 @@ struct BaseBlenderView: View {
         self.game.roundEnded = true
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.game.attempts.append(self.game.currentSequence)
             self.game.mix.toggle()
-            self.feedbackIsVisible.toggle()
+            self.game.feedbackIsVisible.toggle()
+            self.game.attempts.append(self.game.currentSequence)
         }
     }
     
@@ -121,39 +120,40 @@ struct BaseBlenderView: View {
         withAnimation(Animation.linear(duration: 2.0)){
             self.game.fluidLevel = self.game.initialFluidLevel
         }
-        self.game.fruitsCount = 0
-        self.game.currentRound += 1
-        self.game.roundEnded = false
-        self.game.insertInRecipe = [false, false, false, false]
-        self.game.imagesRecipe = [UIImage(), UIImage(), UIImage(), UIImage()]
-        
-        if !self.game.checkWinner(){
-            self.game.currentSequence = RoundSequence()
-        }
-        
-        self.feedbackIsVisible.toggle()
-        self.game.objectWillChange.send()
     }
     
     func buttonAction() {
         if self.game.fruitsCount == 4 {
-            if !feedbackIsVisible {
-                mixJuice()
+            if !self.game.feedbackIsVisible {
                 self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
+                self.game.currentRound += 1
+                mixJuice()
             } else {
                 clearBlender()
-            }            
+                
+                self.game.fruitsCount = 0
+                self.game.roundEnded = false
+                self.game.insertInRecipe = [false, false, false, false]
+                self.game.imagesRecipe = [UIImage(), UIImage(), UIImage(), UIImage()]
+                
+                if !self.game.checkWinner(){
+                    self.game.currentSequence = RoundSequence()
+                }
+                
+                self.game.feedbackIsVisible.toggle()
+            }
+            
+            self.game.objectWillChange.send()
         }
     }
 }
 
 struct ButtonBlenderView: View {
     @ObservedObject var game: GameEnvironment
-    var feedbackIsVisible: Bool
     var size: CGFloat
     
     var body: some View {
-        if !self.feedbackIsVisible{
+        if !self.game.feedbackIsVisible{
             ZStack {
                 Circle()
                     .fill(Color.white)

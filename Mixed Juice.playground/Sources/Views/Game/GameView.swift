@@ -228,9 +228,10 @@ public struct GameView: View {
         var str: String = ""
         
         if self.game.fruitsCount == 4 {
-            if self.game.checkWinner() || (self.game.currentRound == 7 && self.game.roundEnded) {
-                str = "Click the blender\nbutton to talk with Chef Leo."
-            } else if self.game.roundEnded {
+//            if self.game.checkWinner() || (self.game.attempts.count == 8 && self.game.roundEnded) {
+//                str = "Click the blender\nbutton to talk with Chef Leo."
+//            } else
+            if self.game.roundEnded {
                 str = "Click the blender\nbutton to reset recipe."
             } else {
                 str = "Click the blender\nbutton to see the result!"

@@ -8,7 +8,7 @@
  With each attempt, Chef Leo's blender will tell you how close your recipe is to the chef's secret recipe. Possible responses to this indication are:
  - Green: you hit a fruit and in the correct position
  - Yellow: you hit a fruit but in the wrong position
- - Red: you missed a fruit/you choose a fruit that doesn't exist in the recipe
+ - Red: you choose a fruit that doesn't exist in the recipe or is in the wrong quantity
 
  Note that it does not say which was the right fruit or which was the wrong fruit. But with each attempt, you'll be able to find out which fruits fit the recipe and what positions they are in.
 

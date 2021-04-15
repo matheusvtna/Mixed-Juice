@@ -19,6 +19,7 @@ class GameEnvironment: ObservableObject {
     @Published var insertInRecipe: [Bool] = [false, false, false, false]
     @Published var imagesRecipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
     @Published var gameEnded: Bool = false
+    @Published var feedbackIsVisible: Bool = false
     
     var selectedFruit: UIImage = UIImage()
     
@@ -56,6 +57,7 @@ class GameEnvironment: ObservableObject {
         self.imagesRecipe = [UIImage(), UIImage(), UIImage(), UIImage()]
         self.selectedFruit = UIImage()
         self.gameEnded = false
+        self.feedbackIsVisible = false
     }
     
     private func createRecipeFromIngredients() -> [String] {
