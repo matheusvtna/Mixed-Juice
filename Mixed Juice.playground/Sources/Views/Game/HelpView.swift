@@ -122,7 +122,7 @@ struct HelpView: View {
                 
                     
                     Button(action: {
-                        AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
+                        AudioPlayer.shared.play(name: "FlipSound", volume: 0.3, delay: 0.0)
                         self.popUpActive.toggle()
                     }, label: {
                         Image(uiImage: returnButtonImage)

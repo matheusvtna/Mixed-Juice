@@ -8,7 +8,7 @@ public struct MenuView: View {
     public var body: some View {
         ZStack {
             Button(action: {
-                AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
+                AudioPlayer.shared.play(name: "FlipSound", volume: 0.3, delay: 0.0)
                 settings.page = 1
             }, label: {
                 Image(uiImage: startButtonImage)
