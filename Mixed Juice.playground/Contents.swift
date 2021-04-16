@@ -40,6 +40,9 @@
  - Flip Sound: [Splashdust on Freesound](https://freesound.org/people/Splashdust/sounds/84322/)
  - Quick Blip: [Blobsound](https://blobsound.com/quick-blip-sound-fx/)
 
+ All custom fonts used in this project are also not authored by me. So, I leave available here the places where I downloaded the fonts:
+ - BubbleGum: [dafont](https://befonts.com/ygro-sans-serif-font-family.html)
+ - YgroSansBeta: [befonts](https://befonts.com/ygro-sans-serif-font-family.html)
  
 */
 import PlaygroundSupport
