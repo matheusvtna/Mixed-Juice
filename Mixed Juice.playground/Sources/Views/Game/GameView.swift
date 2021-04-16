@@ -37,6 +37,8 @@ public struct GameView: View {
         
     private func selectedFruit(fruit: UIImage) {
         if !self.game.roundEnded {
+            AudioPlayer.shared.play(name: "QuickBlip", volume: 0.35, delay: 0.0)
+            
             let cleanedFruit = getFruitWithoutShadow(fruit: fruit)
             
             if self.game.selectedFruit == cleanedFruit {

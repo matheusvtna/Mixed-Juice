@@ -100,6 +100,7 @@ public struct OnboardingIngredientsView: View {
                     Spacer()
                     
                     Button(action: {
+                        AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
                         settings.page = 3
                     }, label: {
                         Image(uiImage: nextButtonImage)

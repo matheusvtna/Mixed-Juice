@@ -23,8 +23,7 @@
  Because of this, the "Mixed Juice" is my third playground made since I joined the Apple Developer Academy in 2020: the first was a "Esportelites", a quiz game built during a Challenge on Academy; the second, "The Blind Maze", is my first and accepted submission for Swift Student Challenge in 2020; and the third, "Mixed Juice", this playground.
  The last playgrounds were made using UIKit and Spritekit, but this one I did different. My idea of using pure SwiftUI on this playground came from the Apple Developer Academy, because in the past few months, we were encouraged to build an app using SwiftUI and, at the end of Challenge, I felt that there was much more to learn and experiment with. Therefore, the Swift Student Challenge came as the perfect time to study these things and learn a lot about them.
  And, of course, my love of games influenced my project to be a game.
- I BUILD MY FIRST GAME IN SCRATCH SWIFTUI! I LOVED!
- 
+ I BUILT MY FIRST GAME FROM SCRATCH ON PURE SWIFTUI AND I LOVED DOING IT!
  
 ## Credits
  The design of the stage was done largely by myself. However, some features are made from edits of files already created by third parties. In this way, I will give due credit to the authors of the resources used and I will also leave a big thanks to you who helped me to build my application. Thank you,
@@ -38,6 +37,9 @@
  - Coming Out Water: [morganveilleux on Freesound](https://freesound.org/people/morganveilleux/sounds/389987/)
  - Winner Sound: [plasterbrain on Freesound](https://freesound.org/people/plasterbrain/sounds/397355/)
  - Loser Sound: [FunWithSound on Freesound](https://freesound.org/people/FunWithSound/sounds/394899/)
+ - Flip Sound: [Splashdust on Freesound](https://freesound.org/people/Splashdust/sounds/84322/)
+ - Quick Blip: [Blobsound](https://blobsound.com/quick-blip-sound-fx/)
+
  
 */
 import PlaygroundSupport

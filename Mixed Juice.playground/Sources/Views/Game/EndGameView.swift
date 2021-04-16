@@ -66,6 +66,7 @@ struct EndGameView: View {
                         
                         HStack {
                             Button(action: {
+                                AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
                                 self.settings.page = 0
                             }, label: {
                                 Image(uiImage: backMenuButtonImage)
@@ -75,6 +76,7 @@ struct EndGameView: View {
                             })
                             
                             Button(action: {
+                                AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
                                 self.game.newGame()
                             }, label: {
                                 Image(uiImage: tryAgainButtonImage)

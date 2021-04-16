@@ -56,6 +56,7 @@ public struct OnboardingChefLeoView: View {
             VStack{
                 HStack {
                     Button(action: {
+                        AudioPlayer.shared.play(name: "FlipSound", volume: 0.5, delay: 0.0)
                         settings.page = 2
                     }, label: {
                         Image(uiImage: goKitchenButtonImage)
