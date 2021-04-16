@@ -5,8 +5,7 @@ public class AudioPlayer {
     public static var shared = AudioPlayer()
     var actionPlayer: AVAudioPlayer?
     
-    init(){
-    }
+    init(){}
     
     func play(name: String, volume: Float, delay: Double){
         
@@ -15,7 +14,7 @@ public class AudioPlayer {
             return
         }
         
-        do{
+        do {
             try AVAudioSession.sharedInstance().setCategory(.ambient)
             
             actionPlayer = try AVAudioPlayer(contentsOf: url)
@@ -26,7 +25,7 @@ public class AudioPlayer {
                 self.actionPlayer!.play()
             }
         }
-        catch{
+        catch {
             print(error)
         }
     }

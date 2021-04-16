@@ -61,12 +61,12 @@ struct CupBlenderView: View {
             
         }
         .onChange(of: self.game.fruitsCount) { _ in
-            if self.game.fruitsCount > 0 {
-                withAnimation(Animation.linear(duration: 1.0)){
-                    self.game.fluidLevel -= 25
-                    self.game.fluidLevel = self.game.fluidLevel.clamped(to: -30...self.game.initialFluidLevel)
-                }
+            
+            withAnimation(Animation.linear(duration: 1.0)){
+                self.game.fluidLevel = self.game.initialFluidLevel - CGFloat(25*self.game.fruitsCount)
+                self.game.fluidLevel = self.game.fluidLevel.clamped(to: -30...self.game.initialFluidLevel)
             }
+            
         }
         .onChange(of: self.game.mix) { _ in
             if self.game.mix {
@@ -110,7 +110,7 @@ struct BaseBlenderView: View {
         self.game.roundEnded = true
         
         AudioPlayer.shared.play(name: "BlenderSound", volume: 0.4, delay: 0.0)
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.game.mix.toggle()
             self.game.feedbackIsVisible.toggle()
@@ -172,7 +172,7 @@ struct ButtonBlenderView: View {
                 
             }
             .animation(Animation.easeInOut)
-
+            
         } else {
             ZStack {
                 Rectangle()

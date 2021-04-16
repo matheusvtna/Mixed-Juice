@@ -43,13 +43,22 @@ struct CardRecipeView: View {
                 ForEach(0..<4) { index in
                     
                     Button(action: {
-                        if self.game.hasFruitSelected && !self.game.roundEnded {
-                            self.addFruit(fruitCleaned: self.game.selectedFruit, index: index)
-                            self.game.insertInRecipe[index] = true
-                            self.game.imagesRecipe[index] = self.game.selectedFruit
-                            self.game.objectWillChange.send()
+                        if !self.game.roundEnded {
+                            if self.game.hasFruitSelected {
+                                self.addFruit(fruitCleaned: self.game.selectedFruit, index: index)
+                                self.game.insertInRecipe[index] = true
+                                self.game.imagesRecipe[index] = self.game.selectedFruit
+                                self.game.objectWillChange.send()
+                            } else if self.game.insertInRecipe[index] {
+                                self.game.currentSequence.fruits[index] = UIImage()
+                                self.game.currentSequence.recipe[index] = UIImage()
+                                self.game.insertInRecipe[index] = false
+                                self.game.imagesRecipe[index] = UIImage()
+                                self.game.fruitsCount -= 1
+                                self.game.fruitsCount = self.game.fruitsCount.clamped(to: 0...4)
+                                self.game.objectWillChange.send()
+                            }
                         }
-                        
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -72,7 +81,7 @@ struct CardRecipeView: View {
         .onChange(of: self.game.fruitsCount) { _ in
             if self.game.fruitsCount > 0 {
                 AudioPlayer.shared.play(name: "FruitsOnBlender", volume: 0.2, delay: 0.0)
-            }
+            }  
         }
     }
     
