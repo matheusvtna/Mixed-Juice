@@ -77,6 +77,11 @@ struct CardRecipeView: View {
             }
         }
         .background(Image(uiImage: recipeCardImage).resizable().frame(width: 350, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+        .onChange(of: self.game.fruitsCount) { _ in
+            if self.game.fruitsCount > 0 {
+                AudioPlayer.shared.play(name: "FruitsOnBlender", volume: 0.2, delay: 0.0)
+            }
+        }
     }
     
 }

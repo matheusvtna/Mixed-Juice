@@ -5,7 +5,7 @@
  ## How does it work?
  Hello! Today and here you will find Chef Leo: the best juice maker in Brazil and the world. He is known for having super secret recipes for absurdly delicious juices. However, he is also known to be a little ... "selfish". They say that he does not reveal his recipes to anyone. But this is not quite true, because here at Mixed Juice you will have a special meeting with Chef Leo.
  In Chef Leo's kitchen within Mixed Juice, you will have to unveil his recipes in a maximum of 8 attempts. But do not despair, at each attempt you will receive an indication stating how well you did with the created recipe. Therefore, in the Mixed Juice you will have 4 different fruits available to use in your recipe, but not every recipe uses all of them. And be careful: the order of the fruits matters and interferes with the result.
- With each attempt, Chef Leo's blender will tell you how close your recipe is to the chef's secret recipe. Possible responses to this indication are:
+ With each attempt, the Chef Leo's blender will tell you how close your recipe is to the chef's secret recipe. Possible responses to this indication are:
  - Green: you hit a fruit and in the correct position
  - Yellow: you hit a fruit but in the wrong position
  - Red: you choose a fruit that doesn't exist in the recipe or is in the wrong quantity
@@ -31,6 +31,13 @@
  - Glass of Juice: [Designed by Vextok / Freepik](https://br.freepik.com/vetores-gratis/limonada-de-limao-e-limao-ilustracao-verde-de-limonada_3332302.htm#page=1&query=suco&position=0)
  - Fruits: [Designed by Photoroyalty / Freepik](https://br.freepik.com/vetores-gratis/coleta-de-frutas-icones_1041748.htm#page=1&query=fruit&position=18)
 - Booth: [Designed by macrovector / Freepik](https://br.freepik.com/vetores-gratis/prateleiras-de-supermercado-realistas_3796463.htm#page=1&query=prateleira&position=22)
+ 
+ All of sounds in the game also was not created by me. Then, I will give due credit to the authors of the sounds. Thank you,
+ - Blender Sound: [marinsound on Freesound](https://freesound.org/people/marinsound/sounds/198024/)
+ - Water Swirl, Small: [Inspector on Freesound](https://freesound.org/people/InspectorJ/sounds/398719/)
+ - Coming Out Water: [morganveilleux on Freesound](https://freesound.org/people/morganveilleux/sounds/389987/)
+ - Winner Sound: [plasterbrain on Freesound](https://freesound.org/people/plasterbrain/sounds/397355/)
+ - Loser Sound: [FunWithSound on Freesound](https://freesound.org/people/FunWithSound/sounds/394899/)
  
 */
 import PlaygroundSupport

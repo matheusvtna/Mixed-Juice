@@ -98,7 +98,7 @@ struct HelpView: View {
                                         .fill(Color.red)
                                         .frame(width: 15, height: 15)
                                     
-                                    Text("You missed a fruit, it\ndoesn't exist in the recipe")
+                                    Text("You choose a fruit that\ndoesn't exist or is in\nthe wrong quantity")
                                         .font(.custom("YgroSansBeta-Book", size: 17))
                                 }
                                 
@@ -107,7 +107,7 @@ struct HelpView: View {
                                         .fill(Color.clear)
                                         .frame(width: 15, height: 15)
                                     
-                                    Text("It doesn't say which was\nthe right or the wrong fruit.")
+                                    Text("Note: It doesn't say which was\nthe right or the wrong fruit.")
                                         .font(.custom("YgroSansBeta-Medium", size: 18))
                                         .offset(x: -15)
                                 }

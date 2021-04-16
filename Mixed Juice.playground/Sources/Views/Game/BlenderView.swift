@@ -108,6 +108,8 @@ struct BaseBlenderView: View {
         self.game.hasFruitSelected = false
         self.game.selectedFruit = UIImage()
         self.game.roundEnded = true
+        
+        AudioPlayer.shared.play(name: "BlenderSound", volume: 0.4, delay: 0.0)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.game.mix.toggle()
@@ -120,13 +122,16 @@ struct BaseBlenderView: View {
         withAnimation(Animation.linear(duration: 2.0)){
             self.game.fluidLevel = self.game.initialFluidLevel
         }
+        AudioPlayer.shared.play(name: "EmptyBlender", volume: 0.2, delay: 0.1)
     }
     
     func buttonAction() {
         if self.game.fruitsCount == 4 {
             if !self.game.feedbackIsVisible {
                 self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
-                self.game.currentRound += 1
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.game.currentRound += 1
+                }
                 mixJuice()
             } else {
                 clearBlender()

@@ -3,7 +3,7 @@ import SwiftUI
 public class RoundSequence {
     var fruits: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
     var recipe: [UIImage] = [UIImage(), UIImage(), UIImage(), UIImage()]
-    var hits: [Feedback] = [.correct, .correct, .correct, .correct]
+    var hits: [Feedback] = [.almost, .almost, .almost, .almost]
     
     public enum Feedback {
         case correct, almost, incorrect
@@ -18,7 +18,7 @@ public class RoundSequence {
     public init(){
         self.fruits = [UIImage(), UIImage(), UIImage(), UIImage()]
         self.recipe = [UIImage(), UIImage(), UIImage(), UIImage()]
-        self.hits = [.correct, .correct, .correct, .correct]
+        self.hits = [.almost, .almost, .almost, .almost]
     }
     
     public func getHits() -> [Feedback] {

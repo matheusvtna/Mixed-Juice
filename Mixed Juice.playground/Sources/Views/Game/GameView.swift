@@ -215,6 +215,13 @@ public struct GameView: View {
                             .opacity((self.game.gameEnded ? 1 : 0)))
 
         }
+        .onChange(of: self.game.gameEnded){ _ in
+            if self.game.checkWinner() {
+                AudioPlayer.shared.play(name: "WinnerSound", volume: 0.2, delay: 0.0)
+            } else if self.game.checkLoser() {
+                AudioPlayer.shared.play(name: "LoserSound", volume: 0.2, delay: 0.0)
+            }
+        }
 
     }
     
@@ -228,9 +235,6 @@ public struct GameView: View {
         var str: String = ""
         
         if self.game.fruitsCount == 4 {
-//            if self.game.checkWinner() || (self.game.attempts.count == 8 && self.game.roundEnded) {
-//                str = "Click the blender\nbutton to talk with Chef Leo."
-//            } else
             if self.game.roundEnded {
                 str = "Click the blender\nbutton to reset recipe."
             } else {
