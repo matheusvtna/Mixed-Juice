@@ -36,7 +36,6 @@ public struct OnboardingBlenderView: View {
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding(.horizontal)
                                 .padding(.top, -15)
-                                .offset(y: -12)
                             
                             HStack {
                                 Image(uiImage: blenderOnboardingImage)
@@ -86,13 +85,13 @@ public struct OnboardingBlenderView: View {
                                     
                                 }
                             }
-                            .padding(.top, 8)
+                            .padding(.top, 9)
                             .padding(.bottom, 15)
                             .offset(x: 8)
                             
                             Text("Are you ready to unveil my recipes?")
                                 .font(.custom("YgroSansBeta-Medium", size: 18))
-                                .offset(y: 3)
+                                .offset(y: 5)
                             
                         }
                         .offset(x: -10)
@@ -139,7 +138,7 @@ public struct OnboardingBlenderView: View {
                     })
                     .padding(.trailing, 90)
                 }
-                .offset(y: 80)
+                .offset(y: 93)
 
             }
             

@@ -16,7 +16,7 @@ struct EndGameView: View {
             
             if self.game.gameEnded{
                 ZStack {
-                    Image(uiImage: popUpBackgroundImage)
+                    Image(uiImage: boardBackgroundImage)
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     

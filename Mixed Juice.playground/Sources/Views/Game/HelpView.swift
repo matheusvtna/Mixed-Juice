@@ -8,7 +8,7 @@ struct HelpView: View {
             
             
             ZStack {
-                Image(uiImage: popUpBackgroundImage)
+                Image(uiImage: boardBackgroundImage)
                     .resizable()
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 
@@ -131,7 +131,7 @@ struct HelpView: View {
                             .shadow(radius: 2.0)
 
                     })
-                    .offset(y: 20)
+                    .offset(y: 26)
                     
 
                 }

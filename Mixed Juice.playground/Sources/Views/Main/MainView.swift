@@ -5,7 +5,6 @@ var menuBackgroundImage = UIImage(imageLiteralResourceName: "MenuBackground")
 var backgroundImage = UIImage(imageLiteralResourceName: "KitchenBackground")
 var recipeCardImage = UIImage(imageLiteralResourceName: "RecipeCard")
 var cardImage = UIImage(imageLiteralResourceName: "RecipeCardClean")
-var popUpBackgroundImage = UIImage(imageLiteralResourceName: "PopUpBackground")
 var boardBackgroundImage = UIImage(imageLiteralResourceName: "BoardBackground")
 
 // Booth and Shelf

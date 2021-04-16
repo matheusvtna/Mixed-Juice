@@ -35,7 +35,7 @@ public struct OnboardingRecipeView: View {
                             Text("To create a recipe, you need to click\non a fruit and then click on the desired\npositions on this recipe card:")
                                 .font(.custom("YgroSansBeta-Book", size: 20))
                                 .padding([.horizontal, .top])
-                                .offset(y: -20)
+                                .offset(y: -18)
                             
                             Image(uiImage: cardImage)
                                 .resizable()
@@ -93,8 +93,7 @@ public struct OnboardingRecipeView: View {
                     })
                     .padding(.trailing, 90)
                 }
-                .offset(y: 80)
-
+                .offset(y: 93)
             }
             
         }

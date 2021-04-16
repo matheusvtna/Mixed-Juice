@@ -110,8 +110,7 @@ public struct OnboardingIngredientsView: View {
                     })
                     .padding(.trailing, 90)                    
                 }
-                .offset(y: 80)
-
+                .offset(y: 93)
             }
             
         }
