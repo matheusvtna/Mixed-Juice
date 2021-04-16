@@ -22,23 +22,15 @@ var cupBlenderCleanImage = UIImage(imageLiteralResourceName: "CupBlenderClean")
 var blenderOnboardingImage = UIImage(imageLiteralResourceName: "BlenderOnboarding")
 
 // Fruits with Shadow
-var appleImage = UIImage(imageLiteralResourceName: "Apple")
 var avocadoImage = UIImage(imageLiteralResourceName: "Avocado")
-var kiwiImage = UIImage(imageLiteralResourceName: "Kiwi")
-var lemonImage = UIImage(imageLiteralResourceName: "Lemon")
 var orangeImage = UIImage(imageLiteralResourceName: "Orange")
 var peachImage = UIImage(imageLiteralResourceName: "Peach")
-var pearImage = UIImage(imageLiteralResourceName: "Pear")
 var strawberryImage = UIImage(imageLiteralResourceName: "Strawberry")
 
 // Fruits without shadow
-var appleCleanImage = UIImage(imageLiteralResourceName: "AppleClean")
 var avocadoCleanImage = UIImage(imageLiteralResourceName: "AvocadoClean")
-var kiwiCleanImage = UIImage(imageLiteralResourceName: "KiwiClean")
-var lemonCleanImage = UIImage(imageLiteralResourceName: "LemonClean")
 var orangeCleanImage = UIImage(imageLiteralResourceName: "OrangeClean")
 var peachCleanImage = UIImage(imageLiteralResourceName: "PeachClean")
-var pearCleanImage = UIImage(imageLiteralResourceName: "PearClean")
 var strawberryCleanImage = UIImage(imageLiteralResourceName: "StrawberryClean")
 
 // Buttons

@@ -12,20 +12,12 @@ public struct GameView: View {
     private func getFruitWithoutShadow(fruit: UIImage) -> UIImage {
         var fruitCleaned: UIImage
         
-        if fruit == appleImage {
-            fruitCleaned = appleCleanImage
-        } else if fruit == avocadoImage {
+        if fruit == avocadoImage {
             fruitCleaned = avocadoCleanImage
-        } else if fruit == kiwiImage {
-            fruitCleaned = kiwiCleanImage
-        } else if fruit == lemonImage {
-            fruitCleaned = lemonCleanImage
         } else if fruit == orangeImage {
             fruitCleaned = orangeCleanImage
         } else if fruit == peachImage {
             fruitCleaned = peachCleanImage
-        } else if fruit == pearImage {
-            fruitCleaned = pearCleanImage
         } else if fruit == strawberryImage {
             fruitCleaned = strawberryCleanImage
         } else {

@@ -22,20 +22,12 @@ struct CardRecipeView: View {
     private func getFruitWithShadow(fruit: UIImage) -> UIImage {
         var fruitShadow: UIImage
         
-        if fruit == appleCleanImage {
-            fruitShadow = appleImage
-        } else if fruit == avocadoCleanImage {
+        if fruit == avocadoCleanImage {
             fruitShadow = avocadoImage
-        } else if fruit == kiwiCleanImage {
-            fruitShadow = kiwiImage
-        } else if fruit == lemonCleanImage {
-            fruitShadow = lemonImage
         } else if fruit == orangeCleanImage {
             fruitShadow = orangeImage
         } else if fruit == peachCleanImage {
             fruitShadow = peachImage
-        } else if fruit == pearCleanImage {
-            fruitShadow = pearImage
         } else if fruit == strawberryCleanImage {
             fruitShadow = strawberryImage
         } else {
