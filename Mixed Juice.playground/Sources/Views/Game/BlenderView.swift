@@ -128,11 +128,15 @@ struct BaseBlenderView: View {
     func buttonAction() {
         if self.game.fruitsCount == 4 {
             if !self.game.feedbackIsVisible {
-                self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.game.currentRound += 1
+                
+                if !self.game.mix {
+                    self.game.currentSequence.defineHits(secretRecipe: self.game.secretRecipe)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self.game.currentRound += 1
+                    }
+                    mixJuice()
                 }
-                mixJuice()
+
             } else {
                 clearBlender()
                 
