@@ -13,26 +13,23 @@ If you want to know more about my creation process, involving ideation, design a
 [Mixed Juice: Como foi o processo de criação para o Swift Student Challenge na WWDC21?](https://matheusvtna.medium.com/mixed-juice-32966eab8ac9)
 
 ## Screenshots
-### Menu
-<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Menu.png?raw=true" alt="Menu" width="500" height="whatever">
-
-### Onboarding
-Onboarding Chef Leo             |  Onboarding Fruits
+Menu Screen             |  Onboarding Chef Leo
 :-------------------------:|:-------------------------:
-<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingChefLeo.png?raw=true" alt="OnboardingChefLeo" width="500" height="whatever">  |  <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingFruits.png?raw=true" alt="OnboardingFruits" width="500" height="whatever">
+<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Menu.png?raw=true" alt="Menu" width="500" height="whatever"> | <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingChefLeo.png?raw=true" alt="OnboardingChefLeo" width="500" height="whatever"> 
 
-Onboarding Recipe             |  Onboarding Blender
+Onboarding Fruits       | Onboarding Recipe
 :-------------------------:|:-------------------------:
-<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingRecipe.png?raw=true" alt="OnboardingRecipe" width="500" height="whatever">  |  <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingBlender.png?raw=true" alt="OnboardingBlender" width="500" height="whatever">
+<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingFruits.png?raw=true" alt="OnboardingFruits" width="500" height="whatever"> | <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingRecipe.png?raw=true" alt="OnboardingRecipe" width="500" height="whatever"> 
 
-### Game
-Game Kitchen             |  Help Instructions
+Onboarding Blender       | Game Kitchen
 :-------------------------:|:-------------------------:
-<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Game.png?raw=true" alt="Game" width="500" height="whatever">  |  <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Help.png?raw=true" alt="Help" width="500" height="whatever">
+<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/OnboardingBlender.png?raw=true" alt="OnboardingBlender" width="500" height="whatever"> | <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Game.png?raw=true" alt="Game" width="500" height="whatever"> 
 
+Game Running             |  Help Instructions
+:-------------------------:|:-------------------------:
+<img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/GameRunning.png?raw=true" alt="GameRunning" width="500" height="whatever">  |  <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Help.png?raw=true" alt="Help" width="500" height="whatever">
 
-### Game Over
-Winner             |  Loser
+Winner Screen             |  Loser Screen
 :-------------------------:|:-------------------------:
 <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Winner.png?raw=true" alt="Winner" width="500" height="whatever">  |  <img src="https://github.com/matheusvtna/Mixed-Juice/blob/main/Screenshots/Loser.png?raw=true" alt="Loser" width="500" height="whatever">
 
